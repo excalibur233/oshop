@@ -14,11 +14,9 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'OShop\Events\Event' => [
-            SocialiteWasCalled::class => [
-                'SocialiteProviders\WeixinWeb\WeixinWebExtendSocialite@handle',
-            ]
-        ],
+        SocialiteWasCalled::class => [
+            \SocialiteProviders\WeixinWeb\WeixinWebExtendSocialite::class,
+        ]
     ];
 
     /**

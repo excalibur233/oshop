@@ -35,9 +35,4 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
-    'weixinweb' => [
-        'client_id' => env('WEIXINWEB_KEY'),
-        'client_secret' => env('WEIXINWEB_SECRET'),
-        'redirect' => env('WEIXINWEB_REDIRECT_URI'),
-    ],
 ];

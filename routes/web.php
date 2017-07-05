@@ -11,10 +11,14 @@
 |
 */
 
+use OShop\Core\Wechat\RoutesHandler;
+
 Route::get('/', function () {
+    dd(Auth::user()->wechatWebProfile);
     return view('welcome');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+RoutesHandler::routes();
