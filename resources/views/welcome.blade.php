@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-  <example></example>
+  <example :user='{!! \OShop\User::find(1)->toJson() !!}'></example>
 @endsection
