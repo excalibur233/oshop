@@ -1,11 +1,10 @@
-import Vue from 'vue';
 import './bootstrap';
-import Example from './components/Example.vue';
+import router from './routes';
 import RegisterForm from './components/forms/RegisterForm.vue';
 
-Vue.component('example', Example);
 Vue.component('register-form', RegisterForm);
 
-const app = new Vue({
+new Vue({
   el: '#app',
+  router
 });
