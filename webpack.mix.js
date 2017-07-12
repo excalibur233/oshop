@@ -11,8 +11,10 @@ const { mix } = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js').extract(['vue'])
-   .sass('resources/assets/sass/app.scss', 'public/css');
+mix.js('resources/assets/js/app.js', 'public/js')
+  .extract(['vue'])
+  .sass('resources/assets/sass/app.scss', 'public/css');
+  // .copy('node_modules/font-awesome/fonts', 'public/fonts');
 
 // if (mix.inProduction()) {
 //   mix.version();
