@@ -2537,40 +2537,32 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "link": "/"
     }
   }, [_c('i', {
-    staticClass: "fa-home",
+    staticClass: "fa fa-home",
     slot: "icon"
-  }), _vm._v(" "), _c('span', {
-    slot: "label"
-  }, [_vm._v("首页")])]), _vm._v(" "), _c('tabbar-item', {
+  })]), _vm._v(" "), _c('tabbar-item', {
     attrs: {
       "link": "/categories",
       "show-dot": ""
     }
   }, [_c('i', {
-    staticClass: "fa-bars",
+    staticClass: "fa fa-bars",
     slot: "icon"
-  }), _vm._v(" "), _c('span', {
-    slot: "label"
-  }, [_vm._v("分类")])]), _vm._v(" "), _c('tabbar-item', {
+  })]), _vm._v(" "), _c('tabbar-item', {
     attrs: {
       "link": "/cart"
     }
   }, [_c('i', {
-    staticClass: "fa-shopping-cart",
+    staticClass: "fa fa-shopping-cart",
     slot: "icon"
-  }), _vm._v(" "), _c('span', {
-    slot: "label"
-  }, [_vm._v("购物车")])]), _vm._v(" "), _c('tabbar-item', {
+  })]), _vm._v(" "), _c('tabbar-item', {
     attrs: {
       "link": "/profile",
       "badge": "2"
     }
   }, [_c('i', {
-    staticClass: "fa-user",
+    staticClass: "fa fa-user",
     slot: "icon"
-  }), _vm._v(" "), _c('span', {
-    slot: "label"
-  }, [_vm._v("我的")])])], 1)
+  })])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
