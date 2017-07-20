@@ -1,8 +1,8 @@
 import Router from 'vue-router';
 
-import Categories from './components/layouts/Categories.vue';
-import ShopIndex from './components/layouts/ShopIndex.vue';
-import Profile from './components/layouts/Profile.vue';
+import Categories from './layouts/Categories.vue';
+import ShopIndex from './layouts/ShopIndex.vue';
+import Profile from './layouts/Profile.vue';
 
 
 const routes = [
