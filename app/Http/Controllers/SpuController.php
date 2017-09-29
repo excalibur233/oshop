@@ -2,19 +2,24 @@
 
 namespace OShop\Http\Controllers;
 
-use OShop\Product;
+use OShop\Spu;
+use OShop\Http\Resources\Spu as SpuResource;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class SpuController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return response()->json(Product::paginate(10));
+        if ($request->accepts('application/json')) {
+            return SpuResource::collection(Spu::paginate(10));
+        }
+
+        return '123';
     }
 
     /**
@@ -41,10 +46,10 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \OShop\Product  $product
+     * @param  \OShop\Spu  $spu
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Spu $spu)
     {
         //
     }
@@ -52,10 +57,10 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \OShop\Product  $product
+     * @param  \OShop\Spu  $spu
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Spu $spu)
     {
         //
     }
@@ -64,10 +69,10 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \OShop\Product  $product
+     * @param  \OShop\Spu  $spu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Spu $spu)
     {
         //
     }
@@ -75,10 +80,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \OShop\Product  $product
+     * @param  \OShop\Spu  $spu
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Spu $spu)
     {
         //
     }

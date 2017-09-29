@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSpecificationsTable extends Migration
+class CreateSpusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,14 @@ class CreateSpecificationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('specifications', function (Blueprint $table) {
+        Schema::create('spus', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('description');
+            $table->text('detail');
+            $table->decimal('shown_price');
+            $table->string('image_thumbnail');
+            $table->json('image_slide');
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ class CreateSpecificationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('specifications');
+        Schema::dropIfExists('spus');
     }
 }

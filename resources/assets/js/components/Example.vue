@@ -16,13 +16,13 @@
 <script>
   export default {
     props: ['user'],
-    mounted: function() {
+    mounted() {
       console.log('Component mounted.');
     },
     computed: {
-      body: function() {
+      body() {
         return this.user;
-      }
-    }
-  }
+      },
+    },
+  };
 </script>

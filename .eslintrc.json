@@ -1,6 +1,12 @@
 {
-  "extends": "airbnb",
+  "extends": "airbnb-base",
   "env": {
     "browser": true
+  },
+  "plugins": ["vue", "import"],
+  "rules": {
+    "no-new": 0,
+    "no-console": 0,
+    "import/no-extraneous-dependencies": ["error", {}]
   }
 }

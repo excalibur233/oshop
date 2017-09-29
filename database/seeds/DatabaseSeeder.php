@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use OShop\Product;
+use OShop\Spu;
 use OShop\User;
 
 class DatabaseSeeder extends Seeder
@@ -14,6 +14,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         factory(User::class, 30)->create();
-        factory(Product::class, 200)->create();
+        factory(Spu::class, 200)->create();
     }
 }

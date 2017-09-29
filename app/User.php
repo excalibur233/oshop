@@ -26,6 +26,8 @@ use OShop\Core\Wechat\Traits\WechatWebUser;
  * @method static \Illuminate\Database\Eloquent\Builder|\OShop\User wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\OShop\User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\OShop\User whereUpdatedAt($value)
+ * @property string $phone
+ * @method static \Illuminate\Database\Eloquent\Builder|\OShop\User wherePhone($value)
  */
 class User extends Authenticatable
 {
