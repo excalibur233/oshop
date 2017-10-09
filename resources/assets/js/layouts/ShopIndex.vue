@@ -1,21 +1,30 @@
 <template lang="pug">
-  grid(:cols="2")
-    grid-item.grid-item(v-for="spu in spus", :key="spu.id")
-      div.img-container
-        img(:src="spu.image_thumbnail")
-      div.label-container
-        div
-          p.name {{spu.name}}
-        div.description
-          p.description {{spu.description}}
+  van-row(gutter="8")
+    van-col(span="12", v-for="spu in spus", :key="spu.id")
+      div.spu-box
+        div.spu-image
+          img(:src="spu.image_thumbnail")
+        div.spu-text-box
+          div.spu-name
+            p {{spu.name}}
+          div.spu-description
+            p {{spu.description}}
+          div.spu-info
+            span.spu-price-tag ￥
+            span.spu-price-number {{spu.shown_price}}
+            span.spu-paid-count {{spu.paid_count}} 人购买
+            span.spu-more ...
 </template>
 
 <script>
-  import { Grid, GridItem, Masker } from 'vux';
   import axios from 'axios';
+  import { Row, Col } from 'vant';
 
   export default {
-    components: { Grid, GridItem, Masker },
+    components: {
+      'van-col': Col,
+      'van-row': Row,
+    },
     data() {
       return {
         spus: false,
@@ -43,23 +52,36 @@
     overflow hidden
     padding 10px 5px
     position: static;
-  div.img-container
+  div.spu-box
+    padding 5px
     position relative
-  div.img-container > img
+  div.spu-image > img
     width 100%
     height 30vw
     position relative
-  .label-container
-    text-align center
-  p.name
-    font-size inherit
+  div.spu-name > p
+    font-size 1.5rem
     color: #000000
     text-align left
-  div.description
+    text-overflow ellipsis
+    overflow: hidden
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  div.spu-description
     height 10vw
     text-overflow ellipsis
-  p.description
-    font-size .32rem
+  span.spu-price-tag
+    font-size 1.5rem
+  span.spu-price-number
+    color #ff0000
+    font-size 2rem
+  span.spu-paid-count
+    font-size 1rem
+  span.spu-more
+    float right
+  div.spu-description> p
+    font-size 1rem
     color #999999
     text-align left
     text-overflow ellipsis
