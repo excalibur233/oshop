@@ -3,7 +3,7 @@
   "env": {
     "browser": true
   },
-  "plugins": ["vue", "import"],
+  "plugins": ["vue", "import", "html"],
   "rules": {
     "no-new": 0,
     "no-console": 0,

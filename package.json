@@ -1,4 +1,4 @@
-  {
+{
   "private": true,
   "scripts": {
     "dev": "npm run development",
@@ -10,12 +10,13 @@
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=webpack.config.js"
   },
   "devDependencies": {
-    "axios": "^0.16.2",
+    "axios": "^0.17.0",
     "babel-plugin-import": "^1.6.0",
     "bootstrap-sass": "^3.3.7",
     "cross-env": "^5.0.5",
     "eslint": "^4.7.2",
     "eslint-config-airbnb-base": "^12.0.1",
+    "eslint-plugin-html": "^3.2.2",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-vue": "^2.1.0",
     "font-awesome": "^4.7.0",
@@ -26,9 +27,9 @@
     "pug": "^2.0.0-rc.4",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
-    "vant": "^0.9.9",
+    "vant": "^0.10.2",
     "vue": "^2.4.2",
-    "vue-router": "^2.7.0",
+    "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.4.4",
     "vux": "^2.6.4",
     "vux-loader": "^1.1.10"

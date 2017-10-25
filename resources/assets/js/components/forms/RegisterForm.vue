@@ -5,6 +5,6 @@
     components: {
       group: Group,
       cell: Cell,
-    }
-  }
+    },
+  };
 </script>

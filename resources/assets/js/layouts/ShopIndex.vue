@@ -1,33 +1,37 @@
 <template lang="pug">
-  van-row(gutter="8")
-    van-col(span="12", v-for="spu in spus", :key="spu.id")
-      div.spu-box
-        div.spu-image
-          img(:src="spu.image_thumbnail")
-        div.spu-text-box
-          div.spu-name
-            p {{spu.name}}
-          div.spu-description
-            p {{spu.description}}
-          div.spu-info
-            span.spu-price-tag ￥
-            span.spu-price-number {{spu.shown_price}}
-            span.spu-paid-count {{spu.paid_count}} 人购买
-            span.spu-more ...
+  van-pull-refresh(v-model="isLoading")
+    van-row(gutter="8")
+      van-col(span="12", v-for="spu in spus", :key="spu.id")
+        div.spu-box
+          div.spu-image
+            img(:src="spu.image_thumbnail")
+          div.spu-text-box
+            div.spu-name
+              p {{spu.name}}
+            div.spu-description
+              p {{spu.description}}
+            div.spu-info
+              span.spu-price-tag ￥
+              span.spu-price-number {{spu.shown_price}}
+              span.spu-paid-count {{spu.paid_count}} 人购买
+              span.spu-more ...
 </template>
 
 <script>
   import axios from 'axios';
-  import { Row, Col } from 'vant';
+  import { Row, Col, PullRefresh, Toast } from 'vant';
 
   export default {
     components: {
       'van-col': Col,
       'van-row': Row,
+      'van-pull-refresh': PullRefresh,
     },
     data() {
       return {
         spus: false,
+        count: 0,
+        isLoading: false,
       };
     },
     created() {
@@ -42,6 +46,17 @@
       },
       refresh({ data }) {
         this.spus = data.data;
+      },
+    },
+    watch: {
+      isLoading() {
+        if (this.isLoading) {
+          setTimeout(() => {
+            Toast('刷新成功');
+            this.isLoading = false;
+            this.count += this.count;
+          }, 500);
+        }
       },
     },
   };

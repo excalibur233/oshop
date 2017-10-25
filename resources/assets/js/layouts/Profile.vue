@@ -1,66 +1,60 @@
-<template lang="pug">
+<template lang='pug'>
+  doctype html
   div
-    blur.blur(:height=150, :blur-amount=20, :url="url")
-      p.center
-        img(:src="url")
-    card.card
-      div.card-content(slot="content")
-        div.vux-1px-r
-          span 1130
-          br
-          | 积分
-        div
-          span 1130
-          br
-          | 优惠券
+    img.user-poster(src="https://img.yzcdn.cn/public_files/2017/10/23/8690bb321356070e0b8c4404d087f8fd.png")
+    van-row.user-links
+      van-col(span="6")
+        van-icon(name="pending-payment")/
+        |待付款
+      van-col(span="6")
+        van-icon(name="pending-orders")/
+        |待接单
+      van-col(span="6")
+        van-icon(name="pending-deliver")/
+        |待发货
+      van-col(span="6")
+        van-icon(name="logistics")/
+        |待确认
+    van-cell-group.user-group
+      van-cell(icon="records" title="全部订单" isLink)/
+    van-cell-group
+      van-cell(icon="exchange" title="我的积分" isLink)/
+      van-cell(icon="gold-coin" title="我的优惠券" isLink)/
+      van-cell(icon="gift" title="我收到的礼物" isLink)/
 </template>
 
 <script>
-  import { Blur, Card } from 'vux';
+  import { Icon, Cell, CellGroup, Row, Col } from 'vant';
 
   export default {
     components: {
-      Blur,
-      Card,
-    },
-    methods: {
-      onImageError(item, $event) {
-        console.log(item, $event);
-      },
-    },
-    data() {
-      return {
-        url: 'https://o3e85j0cv.qnssl.com/tulips-1083572__340.jpg',
-      };
-    },
-    method: {
-      fetch() {
-
-      },
-    },
-    mounted() {
-
+      'van-icon': Icon,
+      'van-cell': Cell,
+      'van-cell-group': CellGroup,
+      'van-row': Row,
+      'van-col': Col,
     },
   };
 </script>
 
-<style lang="stylus" scoped>
-  .center
-    text-align center
-    padding-top 40px
-    font-size 18px
-  .center img
-    width 100px
-    height 100px
-    border-radius 50%
-    border 4px solid #ebcccc
-  .card-content
-    display flex
-    padding: 10px 0
-  .card-content > div
-    flex 1
-    text-align center
-    font-size 12px
-  .card
-    margin-top 0
+<style lang="less">
+  .user {
+    &-poster {
+      width: 100%;
+      display: block;
+    }
+    &-group {
+      margin-bottom: .3rem;
+    }
+    &-links {
+      padding: 15px 0;
+      font-size: 12px;
+      text-align: center;
+      background-color: #fff;
+      .van-icon {
+        display: block;
+        font-size: 24px;
+      }
+    }
+  }
 </style>
