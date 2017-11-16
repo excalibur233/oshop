@@ -15,7 +15,13 @@ class CreateSkusTable extends Migration
     {
         Schema::create('skus', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('spu_id');
+            $table->string('label')->comments('sku显示名称');
+            $table->string('description')->comments('sku描述');
+            $table->integer('storage')->default(0)->comments('sku库存');
             $table->timestamps();
+
+            $table->foreign('spu_id')->references('id')->on('spus');
         });
     }
 
@@ -26,6 +32,9 @@ class CreateSkusTable extends Migration
      */
     public function down()
     {
+        Schema::table('skus', function(Blueprint $table) {
+            $table->dropForeign('skus_spu_id_foreign');
+        });
         Schema::dropIfExists('skus');
     }
 }

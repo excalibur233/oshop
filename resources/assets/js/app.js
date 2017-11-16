@@ -11,4 +11,4 @@ new Vue({
     app: App,
   },
   router,
-});
+})

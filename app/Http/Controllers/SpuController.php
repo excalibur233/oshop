@@ -19,7 +19,7 @@ class SpuController extends Controller
             return SpuResource::collection(Spu::paginate(10));
         }
 
-        return '123';
+        return response(404);
     }
 
     /**

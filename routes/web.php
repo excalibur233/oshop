@@ -5,7 +5,7 @@ use OShop\Http\Resources\Spu as SpuResource;
 use OShop\Http\Resources\SpuCollection;
 use OShop\Spu;
 
-Auth::loginUsingId(1);
+// Auth::loginUsingId(1);
 
 Auth::routes();
 
