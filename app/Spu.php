@@ -32,7 +32,18 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Spu extends Model
 {
+    /**
+     * @var array
+     */
     protected $casts = [
         'image_slide' => 'array'
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function skus()
+    {
+        return $this->hasMany(Sku::class);
+    }
 }

@@ -20,5 +20,12 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Sku extends Model
 {
-    //
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function spu()
+    {
+        return $this->belongsTo(Spu::class);
+    }
+
 }
