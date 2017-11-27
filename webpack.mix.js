@@ -1,4 +1,6 @@
 const { mix } = require('laravel-mix');
+const webpack = require('webpack');
+
 
 /*
  |--------------------------------------------------------------------------
@@ -12,5 +14,17 @@ const { mix } = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-  .extract(['vue'])
+  .extract([
+    'vue',
+    'vuex',
+    'axios',
+    'jquery',
+    'vue-router',
+  ])
   .sass('resources/assets/sass/app.scss', 'public/css');
+
+mix.autoload({
+  jquery: ['$', 'jQuery', 'window.jQuery'],
+  lodash: ['_', 'window.lodash'],
+});
+

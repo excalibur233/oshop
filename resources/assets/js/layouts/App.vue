@@ -2,7 +2,7 @@
   div
     view-box
       router-view
-      tab-bar
+    tab-bar
 </template>
 
 <script>

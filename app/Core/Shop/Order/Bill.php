@@ -1,6 +1,6 @@
 <?php
 
-namespace OShop;
+namespace OShop\Core\Shop\Order;
 
 use Illuminate\Database\Eloquent\Model;
 

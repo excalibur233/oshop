@@ -1,17 +1,31 @@
 <?php
 
-use OShop\Core\Wechat\RoutesHandler;
-use OShop\Http\Resources\Spu as SpuResource;
-use OShop\Http\Resources\SpuCollection;
-use OShop\Spu;
+/*
+ * 认证路由
+ */
+//Auth::loginUsingId(1);
+//Auth::routes();
 
-// Auth::loginUsingId(1);
+/*
+ * 微信公众号相关路由
+ */
+Route::any('/wechat', 'Wechat/WeChatController@serve');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-RoutesHandler::routes();
+Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+    Route::get('/user', function () {
+        $user = session('wechat.oauth_user'); // 拿到授权用户资料
+        dd($user);
+    });
 
-Route::resource('spu', 'SpuController');
 
-Route::any('/{any?}', 'HomeController@index')->name('home')->where('any','.*');
+    /*
+     * 商城逻辑
+     */
+    Route::resource('spu', 'SpuController');
+
+    /*
+     * 前端路由，交由vue-router，注意放在最后！
+    */
+    Route::any('/{any?}', 'HomeController@index')->name('home')->where('any','.*');
+});

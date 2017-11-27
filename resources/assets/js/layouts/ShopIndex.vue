@@ -1,5 +1,7 @@
 <template lang="pug">
-  van-pull-refresh(v-model="isLoading")
+  div(v-waterfall-lower="loadMore",
+      waterfall-disabled="waterfallDisabled",
+      waterfall-offset="100")
     van-row(gutter="8")
       van-col(span="12", v-for="spu in spus", :key="spu.id")
         div.spu-box
@@ -19,44 +21,53 @@
 
 <script>
   import axios from 'axios';
-  import { Row, Col, PullRefresh, Toast } from 'vant';
+  import { Row, Col, Waterfall, Toast } from 'vant';
 
   export default {
     components: {
       'van-col': Col,
       'van-row': Row,
-      'van-pull-refresh': PullRefresh,
+    },
+    directives: {
+      WaterfallLower: Waterfall('lower'),
+      WaterfallUpper: Waterfall('upper'),
     },
     data() {
       return {
-        spus: false,
+        spus: [],
         count: 0,
-        isLoading: false,
+        max: 0,
+        lastPage: 0,
+        perPage: 10,
+        page: 1,
+        waterfallDisabled: false,
       };
     },
     created() {
       this.fetch();
     },
     methods: {
+      loadMore() {
+        this.waterfallDisabled = true;
+        if (this.page === this.lastPage) {
+          Toast('没有更多了');
+          return;
+        }
+        this.fetch(this.page + 1);
+      },
       fetch(page = 1) {
         axios.get(this.url(page)).then(this.refresh);
       },
       url(page) {
-        return `/spu?page=${page}`;
+        return `/spu?page=${page}&perPage=${this.perPage}`;
       },
       refresh({ data }) {
-        this.spus = data.data;
-      },
-    },
-    watch: {
-      isLoading() {
-        if (this.isLoading) {
-          setTimeout(() => {
-            Toast('刷新成功');
-            this.isLoading = false;
-            this.count += this.count;
-          }, 500);
-        }
+        this.spus = _.concat(this.spus, data.data);
+        this.page = data.meta.current_page;
+        this.count += (data.meta.to - data.meta.from + 1);
+        this.lastPage = data.meta.last_page;
+        this.max = data.meta.total;
+        this.waterfallDisabled = false;
       },
     },
   };

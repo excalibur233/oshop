@@ -12,7 +12,9 @@
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "socialiteproviders/weixin-web": "^3.0"
+        "overtrue/laravel-wechat": "dev-master",
+        "socialiteproviders/weixin-web": "^3.0",
+        "tymon/jwt-auth": "dev-develop"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

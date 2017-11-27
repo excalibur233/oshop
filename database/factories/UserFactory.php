@@ -1,7 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
-use OShop\User;
+use OShop\Core\User\User;
 
 /*
 |--------------------------------------------------------------------------

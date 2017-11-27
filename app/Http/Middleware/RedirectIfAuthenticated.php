@@ -3,7 +3,6 @@
 namespace OShop\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
 
 class RedirectIfAuthenticated
 {
@@ -17,8 +16,8 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+        if (\Auth::guard($guard)->check()) {
+            return response()->json(['error' => 'Already authenticated.'], 400);
         }
 
         return $next($request);

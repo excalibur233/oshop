@@ -1,8 +1,9 @@
 <?php
 
-namespace OShop;
+namespace OShop\Core\Shop\Order;
 
 use Illuminate\Database\Eloquent\Model;
+use OShop\Core\User\User;
 
 /**
  * 订单，在下单时生成

@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use OShop\Spu;
-use OShop\User;
+use OShop\Core\Shop\Commodity\Spu;
+use OShop\Core\User\User;
+
 
 class DatabaseSeeder extends Seeder
 {

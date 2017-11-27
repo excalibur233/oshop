@@ -2,7 +2,7 @@
 
 namespace OShop\Http\Controllers\Auth;
 
-use OShop\User;
+use OShop\Core\User\User;
 use OShop\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;

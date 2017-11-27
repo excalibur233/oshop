@@ -2,7 +2,7 @@
 
 namespace OShop\Http\Controllers;
 
-use OShop\Spu;
+use OShop\Core\Shop\Commodity\Spu;
 use OShop\Http\Resources\Spu as SpuResource;
 use Illuminate\Http\Request;
 

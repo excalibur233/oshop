@@ -1,8 +1,8 @@
 import Vue from 'vue';
 
-import './bootstrap';
 import router from './router';
 import App from './layouts/App.vue';
+import './store';
 
 
 new Vue({
@@ -11,4 +11,4 @@ new Vue({
     app: App,
   },
   router,
-})
+});

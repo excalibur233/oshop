@@ -1,7 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
-use OShop\Spu;
+use OShop\Core\Shop\Commodity\Spu;
 
 $factory->define(Spu::class, function (Faker $faker) {
     return [

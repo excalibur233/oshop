@@ -180,7 +180,7 @@ return [
         /*
          * Package Service Providers...
          */
-        SocialiteProviders\Manager\ServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -240,8 +240,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-
+        'EasyWeChat' => Overtrue\LaravelWeChat\Facade::class,
     ],
 
 ];
