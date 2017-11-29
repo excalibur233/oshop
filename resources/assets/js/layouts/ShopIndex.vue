@@ -1,7 +1,7 @@
 <template lang="pug">
-  div(v-waterfall-lower="loadMore",
+  div.scoll(v-waterfall-lower="loadMore",
       waterfall-disabled="waterfallDisabled",
-      waterfall-offset="100")
+      waterfall-offset="400")
     van-row(gutter="8")
       van-col(span="12", v-for="spu in spus", :key="spu.id")
         div.spu-box
@@ -55,7 +55,7 @@
         }
         this.fetch(this.page + 1);
       },
-      fetch(page = 1) {
+      fetch(page) {
         axios.get(this.url(page)).then(this.refresh);
       },
       url(page) {
@@ -74,6 +74,9 @@
 </script>
 
 <style lang="stylus" scoped>
+  .scoll
+    height 700px;
+    overflow-y scroll;
   .grid-item
     overflow hidden
     padding 10px 5px
