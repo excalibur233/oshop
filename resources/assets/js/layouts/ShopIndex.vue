@@ -76,7 +76,7 @@
 <style lang="stylus" scoped>
   .scoll
     height 100vh;
-    overflow-y scroll;
+    overflow-y auto;
   .grid-item
     overflow hidden
     padding 10px 5px
