@@ -1739,7 +1739,7 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, "\n.grid-item[data-v-27f1976a] {\n  overflow: hidden;\n  padding: 10px 5px;\n  position: static;\n}\ndiv.spu-box[data-v-27f1976a] {\n  padding: 5px;\n  position: relative;\n}\ndiv.spu-image > img[data-v-27f1976a] {\n  width: 100%;\n  height: 30vw;\n  position: relative;\n}\ndiv.spu-name > p[data-v-27f1976a] {\n  font-size: 1.5rem;\n  color: #000;\n  text-align: left;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  display: -webkit-box;\n  -webkit-line-clamp: 2;\n  -webkit-box-orient: vertical;\n}\ndiv.spu-description[data-v-27f1976a] {\n  height: 10vw;\n  text-overflow: ellipsis;\n}\nspan.spu-price-tag[data-v-27f1976a] {\n  font-size: 1.5rem;\n}\nspan.spu-price-number[data-v-27f1976a] {\n  color: #f00;\n  font-size: 2rem;\n}\nspan.spu-paid-count[data-v-27f1976a] {\n  font-size: 1rem;\n}\nspan.spu-more[data-v-27f1976a] {\n  float: right;\n}\ndiv.spu-description> p[data-v-27f1976a] {\n  font-size: 1rem;\n  color: #999;\n  text-align: left;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  display: -webkit-box;\n  -webkit-line-clamp: 2;\n  -webkit-box-orient: vertical;\n}\n", ""]);
+exports.push([module.i, "\n.scoll[data-v-27f1976a] {\n  height: 100vh;\n  overflow-y: scroll;\n}\n.grid-item[data-v-27f1976a] {\n  overflow: hidden;\n  padding: 10px 5px;\n  position: static;\n}\ndiv.spu-box[data-v-27f1976a] {\n  padding: 5px;\n  position: relative;\n}\ndiv.spu-image > img[data-v-27f1976a] {\n  width: 100%;\n  height: 30vw;\n  position: relative;\n}\ndiv.spu-name > p[data-v-27f1976a] {\n  font-size: 1.5rem;\n  color: #000;\n  text-align: left;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  display: -webkit-box;\n  -webkit-line-clamp: 2;\n  -webkit-box-orient: vertical;\n}\ndiv.spu-description[data-v-27f1976a] {\n  height: 10vw;\n  text-overflow: ellipsis;\n}\nspan.spu-price-tag[data-v-27f1976a] {\n  font-size: 1.5rem;\n}\nspan.spu-price-number[data-v-27f1976a] {\n  color: #f00;\n  font-size: 2rem;\n}\nspan.spu-paid-count[data-v-27f1976a] {\n  font-size: 1rem;\n}\nspan.spu-more[data-v-27f1976a] {\n  float: right;\n}\ndiv.spu-description> p[data-v-27f1976a] {\n  font-size: 1rem;\n  color: #999;\n  text-align: left;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  display: -webkit-box;\n  -webkit-line-clamp: 2;\n  -webkit-box-orient: vertical;\n}\n", ""]);
 
 // exports
 
@@ -1867,9 +1867,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
       this.fetch(this.page + 1);
     },
-    fetch: function fetch() {
-      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-
+    fetch: function fetch(page) {
       __WEBPACK_IMPORTED_MODULE_8_axios___default.a.get(this.url(page)).then(this.refresh);
     },
     url: function url(page) {
@@ -20094,9 +20092,10 @@ var render = function() {
           expression: "loadMore"
         }
       ],
+      staticClass: "scoll",
       attrs: {
         "waterfall-disabled": "waterfallDisabled",
-        "waterfall-offset": "100"
+        "waterfall-offset": "400"
       }
     },
     [

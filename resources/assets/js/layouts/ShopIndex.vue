@@ -75,7 +75,7 @@
 
 <style lang="stylus" scoped>
   .scoll
-    height 700px;
+    height 100vh;
     overflow-y scroll;
   .grid-item
     overflow hidden
