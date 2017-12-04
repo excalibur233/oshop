@@ -5,16 +5,16 @@
     van-row.user-links
       van-col(span="6")
         van-icon(name="pending-payment")/
-        |待付款
+        | 待付款
       van-col(span="6")
         van-icon(name="pending-orders")/
-        |待接单
+        | 待接单
       van-col(span="6")
         van-icon(name="pending-deliver")/
-        |待发货
+        | 待发货
       van-col(span="6")
         van-icon(name="logistics")/
-        |待确认
+        | 待确认
     van-cell-group.user-group
       van-cell(icon="records" title="全部订单" isLink)/
     van-cell-group
@@ -25,6 +25,7 @@
 
 <script>
   import { Icon, Cell, CellGroup, Row, Col } from 'vant';
+
 
   export default {
     components: {

@@ -8,7 +8,7 @@ const requireContext = require.context('./modules', false, /.*\.js$/);
 const modules = requireContext.keys()
   .map(file => [file.replace(/(^.\/)|(\.js$)/g, ''), requireContext(file)])
   .reduce((_modules, [name, _module]) => {
-    _modules[name] = _module;
+    _modules[name] = _module.default;
     return _modules;
   }, {});
 

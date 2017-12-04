@@ -1,6 +1,6 @@
 <template lang="pug">
-
-  van-button(type="primary") Default
+  div
+    van-button(type="primary") Default
 </template>
 
 <script>

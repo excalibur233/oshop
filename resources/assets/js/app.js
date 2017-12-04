@@ -1,8 +1,8 @@
 import Vue from 'vue';
 
-import router from './router';
 import App from './layouts/App.vue';
-import './store';
+import router from './router';
+import store from './store';
 
 
 new Vue({
@@ -10,5 +10,7 @@ new Vue({
   components: {
     app: App,
   },
+  store,
   router,
 });
+
