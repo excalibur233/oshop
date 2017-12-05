@@ -1,5 +1,5 @@
 <template>
-  <p>对不起，该页面不存在。</p>
+  <img src="/images/404.svg" alt="404 not found">
 </template>
 
 <script>

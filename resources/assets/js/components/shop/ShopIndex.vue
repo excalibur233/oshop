@@ -3,9 +3,9 @@
     div.scoll(v-waterfall-lower="loadMore",
     waterfall-disabled="waterfallDisabled",
     waterfall-offset="400")
-      van-row(gutter="8")
-        van-col(span="12", v-for="spu in spus", :key="spu.id")
-          div.spu-box
+      van-row
+        van-col(span="12", v-for="spu in spus", :key="spu.id"): router-link(to="/goods")
+          .spu-box
             div.spu-image
               img(:src="spu.image_thumbnail")
             div.spu-text-box
@@ -15,7 +15,7 @@
                 p {{spu.description}}
               div.spu-info
                 span.spu-price-tag ￥
-                span.spu-price-number {{spu.shown_price}}
+                span.spu-price-number {{spu.shown_price}}&emsp;
                 span.spu-paid-count {{spu.paid_count}} 人购买
                 span.spu-more ...
 </template>
@@ -85,46 +85,37 @@
     padding 10px 5px
     position: static;
 
-  div.spu-box
+  .spu-box
     padding 5px
-    position relative
 
-  div.spu-image > img
+  .spu-image > img
     width 100%
-    height 30vw
-    position relative
 
-  div.spu-name > p
+  .spu-name > p
     font-size 1.5rem
     color: #000000
-    text-align left
     text-overflow ellipsis
     overflow: hidden
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
 
-  div.spu-description
-    height 10vw
-    text-overflow ellipsis
-
-  span.spu-price-tag
+  .spu-price-tag
     font-size 1.5rem
 
-  span.spu-price-number
+  .spu-price-number
     color #ff0000
     font-size 2rem
 
-  span.spu-paid-count
+  .spu-paid-count
     font-size 1rem
 
-  span.spu-more
+  .spu-more
     float right
 
-  div.spu-description > p
+  .spu-description > p
     font-size 1rem
     color #999999
-    text-align left
     text-overflow ellipsis
     overflow: hidden
     display: -webkit-box;

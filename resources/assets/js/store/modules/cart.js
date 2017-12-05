@@ -1,6 +1,6 @@
 export default {
   state: {
-    goods_num: 5,
+    goods_num: 0,
   },
   mutations: {
     change(state, n) {

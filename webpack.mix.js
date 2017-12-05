@@ -27,3 +27,4 @@ mix.autoload({
   lodash: ['_', 'window.lodash'],
 });
 
+mix.copy('resources/assets/img', 'public/images');

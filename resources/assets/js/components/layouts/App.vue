@@ -17,4 +17,8 @@
     width: 100%;
     overflow-x: hidden;
   }
+  a {
+    text-decoration: none!important;
+    color: inherit!important;
+  }
 </style>

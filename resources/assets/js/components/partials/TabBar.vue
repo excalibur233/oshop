@@ -18,7 +18,21 @@
     data() {
       return {
         active: 0,
-        cart_info: this.$store.state.cart.goods_num.toString(),
+        cart_info: (this.$store.state.cart.goods_num || '').toString(),
+      }
+    },
+    mounted() {
+      this.active = this.$children[ 0 ].$children.map(function (e) {
+        return e.to
+      }).indexOf(this.$route.path)
+    },
+    watch: {
+      '$route': function (to, from) {
+        let now_index = this.$children[ 0 ].$children.map(function (e) {
+          return e.to
+        }).indexOf(to.path);
+        console.log(now_index);
+        this.active = now_index
       }
     }
   };

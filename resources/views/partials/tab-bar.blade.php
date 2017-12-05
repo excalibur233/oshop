@@ -1,3 +1,0 @@
-<tab-bar>
-
-</tab-bar>
