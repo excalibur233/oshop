@@ -13,9 +13,7 @@
   <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-<div id="app">
-  <app></app>
-</div>
+  <app id="app"></app>
 
 <!-- Scripts -->
 <script src="{{ mix('js/manifest.js') }}"></script>

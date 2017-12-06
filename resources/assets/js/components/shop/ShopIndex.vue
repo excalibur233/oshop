@@ -1,6 +1,8 @@
 <template lang="pug">
   div
-    div.scoll(v-waterfall-lower="loadMore",
+    form(action="/")
+      van-search(placeholder="请输入商品名称", v-model="searchValue")
+    .scoll(v-waterfall-lower="loadMore",
     waterfall-disabled="waterfallDisabled",
     waterfall-offset="400")
       van-row
@@ -22,13 +24,14 @@
 
 <script>
   import axios from 'axios';
-  import { Row, Col, Waterfall, Toast } from 'vant';
+  import { Row, Col, Waterfall, Toast, Search } from 'vant';
 
 
   export default {
     components: {
       'van-col': Col,
       'van-row': Row,
+      'van-search': Search,
     },
     directives: {
       WaterfallLower: Waterfall('lower'),
@@ -43,6 +46,7 @@
         perPage: 10,
         page: 1,
         waterfallDisabled: false,
+        searchValue: ''
       };
     },
     created() {
