@@ -61,7 +61,7 @@
         axios.get(this.url(page)).then(this.refresh);
       },
       url(page) {
-        return `/spu?page=${page}&perPage=${this.perPage}`;
+        return `/api/spu?page=${page}&perPage=${this.perPage}`;
       },
       refresh({ data }) {
         this.spus = _.concat(this.spus, data.data);

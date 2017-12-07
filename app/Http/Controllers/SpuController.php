@@ -49,9 +49,13 @@ class SpuController extends Controller
      * @param  \OShop\Spu  $spu
      * @return \Illuminate\Http\Response
      */
-    public function show(Spu $spu)
+    public function show(Request $request, Spu $spu)
     {
-        //
+        if ($request->accepts('application/json')) {
+            return new SpuResource($spu);
+        }
+
+        return response(404);
     }
 
     /**
