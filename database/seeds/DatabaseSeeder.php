@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use OShop\Core\Shop\Commodity\Spu;
-use OShop\Core\shop\Commodity\SpustatisticCategory;
+use OShop\Core\Shop\Commodity\SpustatisticCategory;
 use OShop\Core\User\User;
 
 
