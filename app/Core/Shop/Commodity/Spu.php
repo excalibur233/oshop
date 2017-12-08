@@ -46,4 +46,9 @@ class Spu extends Model
     {
         return $this->hasMany(Sku::class);
     }
+
+    public function statisticCategory()
+    {
+        return $this->belongsTo(SpuStatisticCategory::class, 'statistic_category_id');
+    }
 }
