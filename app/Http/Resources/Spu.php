@@ -20,6 +20,7 @@ class Spu extends Resource
             'name' => $this->name,
             'description' => $this->description,
             'shown_price' => $this->shown_price,
+            'sold_count' => $spu->sold_count,            
             'image_thumbnail' => $this->image_thumbnail,
             'detail' => $this->detail,
             'image_slide' => $this->image_slide,
