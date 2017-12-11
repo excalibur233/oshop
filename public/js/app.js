@@ -3567,7 +3567,7 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, "\nhtml, body {\n  height: 100%;\n  width: 100%;\n  overflow-x: hidden;\n  font-family: \"Microsoft YaHei\", \"Lucida Grande\", \"Lucida Sans Unicode\", Verdana, Arial, Helvetica, sans-serif;\n}\na, a:hover, a:focus {\n  text-decoration: none!important;\n  color: inherit;\n}\n.text-center {\n  text-align: center;\n}\n\n/** {*/\n  /*transition: all .1s;*/\n/*}*/\n", ""]);
+exports.push([module.i, "\nhtml, body {\n  height: 100%;\n  width: 100%;\n  overflow-x: hidden;\n  font-family: \"Microsoft YaHei\", \"Lucida Grande\", \"Lucida Sans Unicode\", Verdana, Arial, Helvetica, sans-serif;\n}\na, a:hover, a:focus {\n  text-decoration: none!important;\n  color: inherit;\n}\n.text-center {\n  text-align: center;\n}\n[v-cloak] {\n  display: none;\n}\n\n/** {*/\n  /*transition: all .1s;*/\n/*}*/\n", ""]);
 
 // exports
 
@@ -23243,7 +23243,7 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, "\n.address-title {\n  padding: 5px 15px;\n  background-color: transparent;\n  color: #8c999f;\n}\n.address {\n  margin-bottom: 2rem;\n}\n.finish-button {\n  color: #fff;\n  background-color: #f85;\n  border: none;\n}\n.delete-button {\n  color: #fff;\n  background-color: #f00;\n  border: none;\n}\n.delete-icon {\n  vertical-align: top;\n  display: inline-block;\n  width: 30px;\n  margin-top: 35px;\n  font-size: 2rem;\n  font-weight: bolder;\n  color: #f00;\n}\n.checkbox-button {\n  position: relative;\n  vertical-align: top;\n  display: inline-block;\n  margin-top: 35px;\n}\n.checkbox-button span {\n  vertical-align: top;\n}\n.goods-card {\n  display: inline-block;\n  width: calc(100vw - 65px);\n  margin-top: 0 !important;\n  border-radius: 5px;\n}\n", ""]);
+exports.push([module.i, "\n.address-title {\n  padding: 5px 15px;\n  background-color: transparent;\n  color: #8c999f;\n}\n.address {\n  margin-bottom: 2rem;\n}\n.finish-button {\n  color: #fff;\n  background-color: #f85;\n  border: none;\n}\n.delete-button {\n  color: #fff;\n  background-color: #f00;\n  border: none;\n}\n.delete-icon {\n  vertical-align: top;\n  display: inline-block;\n  width: 30px;\n  margin-top: 35px;\n  font-size: 2rem;\n  font-weight: bolder;\n  color: #f00;\n}\n.checkbox-button {\n  position: relative;\n  vertical-align: top;\n  display: inline-block;\n  margin-top: 35px;\n}\n.checkbox-button span {\n  vertical-align: top;\n}\n.goods-card {\n  display: inline-block;\n  width: calc(98vw - 65px);\n  margin-top: 0 !important;\n  border-radius: 5px;\n}\n", ""]);
 
 // exports
 
@@ -25885,7 +25885,7 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, "\n.goods {\n  padding-bottom: 50px;\n}\n.goods-swipe img {\n  width: 100%;\n  display: block;\n}\n.goods-title {\n  font-size: 16px;\n}\n.goods-price {\n  color: #f44;\n}\n.goods-express {\n  color: #999;\n  font-size: 12px;\n  padding: 5px 15px 5px 0;\n}\n.goods-cell-group {\n  margin: 15px 0;\n}\n.goods-cell-group .van-cell__value {\n  color: #999;\n}\n.van-goods-action .van-goods-action__big-btn {\n  color: #fff;\n}\n.van-sku-body {\n  height: 180px;\n}\n.van-sku-body .van-stepper__input {\n  vertical-align: bottom;\n}\n.goods-detail img {\n  width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n.goods {\n  padding-bottom: 50px;\n}\n.goods-swipe img {\n  width: 100%;\n  display: block;\n}\n.goods-title {\n  font-size: 16px;\n}\n.goods-price {\n  color: #f44;\n}\n.goods-express {\n  color: #999;\n  font-size: 12px;\n  padding: 5px 15px 5px 0;\n}\n.goods-cell-group {\n  margin: 15px 0;\n}\n.goods-cell-group .van-cell__value {\n  color: #999;\n}\n.van-goods-action .van-goods-action__big-btn {\n  color: #fff;\n}\n.van-sku-body {\n  height: 180px;\n}\n.van-sku-body .van-stepper__input {\n  vertical-align: bottom;\n}\n.disabled {\n  background-color: #e5e5e5;\n  color: #c9c9c9;\n}\n.goods-detail img {\n  width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -26029,6 +26029,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
@@ -26036,59 +26038,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   components: (_components = {}, _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_21_vant_lib_tag___default.a.name, __WEBPACK_IMPORTED_MODULE_21_vant_lib_tag___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_19_vant_lib_col___default.a.name, __WEBPACK_IMPORTED_MODULE_19_vant_lib_col___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_17_vant_lib_icon___default.a.name, __WEBPACK_IMPORTED_MODULE_17_vant_lib_icon___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_15_vant_lib_cell___default.a.name, __WEBPACK_IMPORTED_MODULE_15_vant_lib_cell___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_13_vant_lib_cell_group___default.a.name, __WEBPACK_IMPORTED_MODULE_13_vant_lib_cell_group___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_11_vant_lib_sku___default.a.name, __WEBPACK_IMPORTED_MODULE_11_vant_lib_sku___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_9_vant_lib_swipe___default.a.name, __WEBPACK_IMPORTED_MODULE_9_vant_lib_swipe___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_7_vant_lib_swipe_item___default.a.name, __WEBPACK_IMPORTED_MODULE_7_vant_lib_swipe_item___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_5_vant_lib_goods_action___default.a.name, __WEBPACK_IMPORTED_MODULE_5_vant_lib_goods_action___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_3_vant_lib_goods_action_big_btn___default.a.name, __WEBPACK_IMPORTED_MODULE_3_vant_lib_goods_action_big_btn___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_1_vant_lib_goods_action_mini_btn___default.a.name, __WEBPACK_IMPORTED_MODULE_1_vant_lib_goods_action_mini_btn___default.a), _components),
   data: function data() {
     return {
-      showBase: true,
+      showBase: false,
       showAddCartBtn: false,
-      goods: {
-        name: '诺和针®32G',
-        price: 545.86,
-        //          express: '免运费',
-        //          remain: 19,
-        description: "诺和针®32G Tip ETW位一次性使用无菌注射针，与诺和诺德胰岛素注射系统配合使用。",
-        image_slide: JSON.parse("[\"http:\/\/o93nlp231.bkt.clouddn.com\/f78385376b0cd9f395467df04f049fb5.png\", \"http:\/\/o93nlp231.bkt.clouddn.com\/f78385376b0cd9f395467df04f049fb5.png\"]"),
-        detail: "<p><img src=\"http:\/\/o93nlp231.bkt.clouddn.com\/uploads\/ueditor\/php\/upload\/image\/20160621\/1466490072863273.png\" title=\"1466490072863273.png\" alt=\"0.png\"\/><img src=\"http:\/\/o93nlp231.bkt.clouddn.com\/uploads\/ueditor\/php\/upload\/image\/20160621\/1466490075792569.png\" title=\"1466490075792569.png\" alt=\"1.png\"\/><img src=\"http:\/\/o93nlp231.bkt.clouddn.com\/uploads\/ueditor\/php\/upload\/image\/20160621\/1466490078984291.png\" title=\"1466490078984291.png\" alt=\"2.png\"\/><img src=\"http:\/\/o93nlp231.bkt.clouddn.com\/uploads\/ueditor\/php\/upload\/image\/20160621\/1466490083205168.png\" title=\"1466490083205168.png\" alt=\"3.png\"\/><img src=\"http:\/\/o93nlp231.bkt.clouddn.com\/uploads\/ueditor\/php\/upload\/image\/20160621\/1466490087537075.png\" title=\"1466490087537075.png\" alt=\"4.png\"\/><img src=\"http:\/\/o93nlp231.bkt.clouddn.com\/uploads\/ueditor\/php\/upload\/image\/20160621\/1466490091971519.png\" title=\"1466490091971519.png\" alt=\"5.png\"\/><img src=\"http:\/\/o93nlp231.bkt.clouddn.com\/uploads\/ueditor\/php\/upload\/image\/20160621\/1466490094523465.png\" title=\"1466490094523465.png\" alt=\"6.png\"\/><img src=\"http:\/\/o93nlp231.bkt.clouddn.com\/uploads\/ueditor\/php\/upload\/image\/20160621\/1466490097750109.png\" title=\"1466490097750109.png\" alt=\"7.png\"\/><\/p>",
-        image_thumbnail: "http:\/\/o93nlp231.bkt.clouddn.com\/f78385376b0cd9f395467df04f049fb5.png"
-      },
+      disableStepperInput: true,
+      goods: {},
       goodsId: this.$route.params.id,
       goods_num: this.$store.state.cart.goods_num,
-      sku: {
-        // 所有sku规格类目与其值的从属关系，比如商品有颜色和尺码两大类规格，颜色下面又有红色和蓝色两个规格值。
-        // 可以理解为一个商品可以有多个规格类目，一个规格类目下可以有多个规格值。
-        tree: [{
-          "k": "规格", // skuKeyName：规格类目名称
-          "v": [{
-            "id": "1", // skuValueId：规格值id
-            "name": "红色", // skuValueName：规格值名称
-            "imgUrl": "https:\/\/img.yzcdn.cn\/upload_files\/2017\/02\/21\/FjKTOxjVgnUuPmHJRdunvYky9OHP.jpg" // 规格类目图片，只有第一个规格类目可以定义图片
-          }, {
-            "id": "2",
-            "name": "蓝色",
-            "imgUrl": "https:\/\/img.yzcdn.cn\/upload_files\/2017\/03\/16\/Fs_OMbSFPa183sBwvG_94llUYiLa.jpeg"
-          }],
-          "k_s": "s1" // skuKeyStr：sku组合列表（下方list）中当前类目对应的key值，value值会是从属于当前类目的一个规格值id
-        }],
-        list: [{
-          "id": 1, // skuId，下单时后端需要
-          "price": 100, // 价格（单位分）
-          "s1": "1", // 规格类目k_s为s1的对应规格值id
-          "stock_num": 110 // 当前sku组合对应的库存
-        }, {
-          "id": 2, // skuId，下单时后端需要
-          "price": 200, // 价格（单位分）
-          "s1": "2", // 规格类目k_s为s1的对应规格值id
-          "stock_num": 110 // 当前sku组合对应的库存
-        }],
-        price: "1.00", // 默认价格（单位元）后端单位暂时有点不统一
-        stock_num: 227, // 商品总库存
-        collection_id: '1', // 无规格商品skuId取collection_id，否则取所选sku组合对应的id
-        none_sku: false, // 是否无规格商品
-        hide_stock: false // 是否隐藏剩余库存
-      }
+      sku: {}
     };
   },
 
   methods: {
-    formatPrice: function formatPrice() {
-      return '¥' + (this.goods.price / 100).toFixed(2);
+    formatPrice: function formatPrice(e) {
+      if (e) {
+        return '¥' + (e - 0).toFixed(2);
+      } else {
+        return '¥0.00';
+      }
     },
     add_cart: function add_cart() {
       this.showBase = true;
@@ -26097,14 +26063,79 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.showBase = true;
     }
   },
-  created: function created() {
-    //      axios.get('/api/spu/' + this.$route.params.id).then(({ data }) => {
-    //        this.goods.title = data.name;
-    //        this.goods.title = data.name;
-    //        this.goods.title = data.name;
-    //        this.goods.title = data.name;
-    //        this.goods.title = data.name;
-    //      })
+  beforeCreate: function beforeCreate() {
+    var _this = this;
+
+    __WEBPACK_IMPORTED_MODULE_22_axios___default.a.get('/api/spu/' + this.$route.params.id).then(function (_ref) {
+      var data = _ref.data;
+
+      var info = data.data;
+      _this.goods = {
+        name: info.name,
+        shown_price: info.shown_price,
+        //          express: '免运费',
+        //          remain: 19,
+        description: info.description,
+        image_slide: JSON.parse(info.image_slide),
+        detail: info.detail,
+        picture: info.image_thumbnail
+      };
+      if (info.skus.length !== 0) {
+        _this.sku = {
+          price: info.shown_price.toString,
+          sold_count: info.sold_count,
+          collection_id: '1', // 无规格商品skuId取collection_id，否则取所选sku组合对应的id
+          none_sku: false, // 是否无规格商品
+          hide_stock: true, // 是否隐藏剩余库存
+          tree: [{
+            "k": "规格", // skuKeyName：规格类目名称
+            "v": info.skus.map(function (val) {
+              return {
+                "id": val.id,
+                "name": val.label,
+                "imgUrl": !val.img ? info.image_thumbnail : val.img
+              };
+            }),
+            "k_s": "s1" // skuKeyStr：sku组合列表（下方list）中当前类目对应的key值，value值会是从属于当前类目的一个规格值id
+          }],
+          list: info.skus.map(function (val) {
+            return {
+              "id": val.id, // skuId，下单时后端需要
+              "price": val.price, // 价格（单位分）
+              "s1": "1", // 规格类目k_s为s1的对应规格值id
+              "stock_num": val.storage // 当前sku组合对应的库存
+            };
+          })
+        };
+      } else {
+        _this.disableStepperInput = false;
+        _this.sku = {
+          price: info.shown_price,
+          sold_count: info.sold_count,
+          collection_id: '1', // 无规格商品skuId取collection_id，否则取所选sku组合对应的id
+          none_sku: false, // 是否无规格商品
+          hide_stock: true, // 是否隐藏剩余库存
+          tree: [{
+            "k": "规格", // skuKeyName：规格类目名称
+            "v": [{
+              "id": 0,
+              "name": '无规格',
+              "imgUrl": info.image_thumbnail
+            }],
+            "k_s": "s1" // skuKeyStr：sku组合列表（下方list）中当前类目对应的key值，value值会是从属于当前类目的一个规格值id
+          }],
+          list: [{
+            "id": 0, // skuId，下单时后端需要
+            "price": info.shown_price, // 价格（单位分）
+            "s1": "1", // 规格类目k_s为s1的对应规格值id
+            "stock_num": 0 // 当前sku组合对应的库存
+          }]
+        };
+      }
+    });
+  },
+  mounted: function mounted() {
+    this.$refs.sku.selectedSku = { s1: '1' };
   }
 });
 
@@ -27346,7 +27377,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "goods-price" }, [
-              _vm._v(_vm._s(_vm.formatPrice(_vm.goods.price)))
+              _vm._v(_vm._s(_vm.formatPrice(_vm.goods.shown_price)))
             ])
           ]),
           _vm._v(" "),
@@ -27391,12 +27422,13 @@ var render = function() {
       _c(
         "van-sku",
         {
+          ref: "sku",
           attrs: {
             sku: _vm.sku,
             goods: _vm.goods,
             goodsId: _vm.goodsId,
             showAddCartBtn: _vm.showAddCartBtn,
-            resetStepperOnHide: ""
+            disableStepperInput: _vm.disableStepperInput
           },
           scopedSlots: _vm._u([
             {
@@ -27404,18 +27436,28 @@ var render = function() {
               fn: function(props) {
                 return [
                   _c("div", { staticClass: "van-sku-actions" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "van-sku__buy-btn",
-                        on: {
-                          click: function($event) {
-                            props.skuEventBus.$emit("sku:buy")
-                          }
-                        }
-                      },
-                      [_vm._v("确定")]
-                    )
+                    !_vm.disableStepperInput
+                      ? _c(
+                          "button",
+                          { staticClass: "van-sku__buy-btn disabled" },
+                          [_vm._v("暂时无法购买")]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.disableStepperInput
+                      ? _c(
+                          "button",
+                          {
+                            staticClass: "van-sku__buy-btn",
+                            on: {
+                              click: function($event) {
+                                props.skuEventBus.$emit("sku:buy")
+                              }
+                            }
+                          },
+                          [_vm._v("确定\n        ")]
+                        )
+                      : _vm._e()
                   ])
                 ]
               }

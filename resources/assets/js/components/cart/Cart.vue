@@ -194,7 +194,7 @@
 
   .goods-card
     display inline-block
-    width calc(100vw - 65px)
+    width calc(98vw - 65px)
     margin-top 0 !important
     border-radius 5px
 </style>
