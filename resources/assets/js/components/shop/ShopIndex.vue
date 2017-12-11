@@ -1,10 +1,10 @@
 <template lang="pug">
   div
-    form(action="/")
-      van-search(placeholder="请输入商品名称", v-model="searchValue")
     .scoll(v-waterfall-lower="loadMore",
     waterfall-disabled="waterfallDisabled",
     waterfall-offset="400")
+      form.search-bar
+        van-search(placeholder="请输入商品名称", v-model="searchValue")
       van-row
         van-col(span="12", v-for="spu in spus", :key="spu.id"): router-link(to="/goods")
           .spu-box
@@ -81,48 +81,54 @@
 
 <style lang="stylus" scoped>
   .scoll
-    height 100vh;
-    overflow-y auto;
+    height 100vh
+    overflow-y auto
 
-  .grid-item
-    overflow hidden
-    padding 10px 5px
-    position: static;
+  .search-bar
+    height 42px;
+    .van-search
+      position fixed
+      width 100vw
 
   .spu-box
-    padding 5px
+    margin 5px
+    background-color #fff
+    border-radius 5px
+    .spu-image
+      margin 5px
+      img
+        width 100%
+    .spu-text-box
+      margin 5px
+      .spu-name > p
+        margin-bottom 5px
+        font-size 1.5rem
+        color #000000
+        text-overflow ellipsis
+        overflow hidden
+        display -webkit-box
+        -webkit-line-clamp 1
+        -webkit-box-orient vertical
+      .spu-description > p
+        margin-bottom 5px
+        font-size 1rem
+        color #999999
+        text-overflow ellipsis
+        overflow hidden
+        display -webkit-box
+        -webkit-line-clamp 2
+        -webkit-box-orient vertical
+      .spu-info
+        .spu-price-tag
+          font-size 1.5rem
+        .spu-price-number
+          color #ff0000
+          font-size 2rem
+        .spu-paid-count
+          font-size 1rem
+        .spu-more
+          float right
+          line-height 3.5rem
 
-  .spu-image > img
-    width 100%
 
-  .spu-name > p
-    font-size 1.5rem
-    color: #000000
-    text-overflow ellipsis
-    overflow: hidden
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-
-  .spu-price-tag
-    font-size 1.5rem
-
-  .spu-price-number
-    color #ff0000
-    font-size 2rem
-
-  .spu-paid-count
-    font-size 1rem
-
-  .spu-more
-    float right
-
-  .spu-description > p
-    font-size 1rem
-    color #999999
-    text-overflow ellipsis
-    overflow: hidden
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
 </style>

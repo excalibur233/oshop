@@ -16,9 +16,17 @@
     height: 100%;
     width: 100%;
     overflow-x: hidden;
+    font-family: "Microsoft YaHei", "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
   }
-  a {
+  a, a:hover, a:focus {
     text-decoration: none!important;
-    color: inherit!important;
+    color: inherit;
   }
+  .text-center {
+    text-align: center;
+  }
+
+  /** {*/
+    /*transition: all .1s;*/
+  /*}*/
 </style>

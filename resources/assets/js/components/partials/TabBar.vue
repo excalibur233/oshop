@@ -38,3 +38,11 @@
   };
 </script>
 
+<style lang="stylus">
+  green = #01d491
+  orange = #f9b900
+
+   .van-tabbar-item--active
+     color orange
+</style>
+
