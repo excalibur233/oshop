@@ -14,6 +14,12 @@ class Sku extends Resource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'spu_id' => $this->spu_id,
+            'label' => $this->label,
+            'description' => $this->description,
+            'storage' => $this->storage
+        ];
     }
 }

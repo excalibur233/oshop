@@ -3,6 +3,7 @@
 namespace OShop\Http\Resources;
 
 use Illuminate\Http\Resources\Json\Resource;
+use OShop\Http\Resources\Sku;
 
 class Spu extends Resource
 {
@@ -24,7 +25,8 @@ class Spu extends Resource
             'image_thumbnail' => $this->image_thumbnail,
             'detail' => $this->detail,
             'image_slide' => $this->image_slide,
-            'statistic_category' => new SpuStatisticCategory($this->statisticCategory)
+            'statistic_category' => new SpuStatisticCategory($this->statisticCategory),
+            'skus' => Sku::collection($this->skus)
         ];
     }
 }
