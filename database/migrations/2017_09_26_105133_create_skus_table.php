@@ -18,6 +18,8 @@ class CreateSkusTable extends Migration
             $table->unsignedInteger('spu_id');
             $table->string('label')->comments('sku显示名称');
             $table->string('description')->comments('sku描述');
+            $table->string('image_thumbnail')->comments('sku缩略图');
+            $table->decimal('price')->comments('sku价格');
             $table->integer('storage')->default(0)->comments('sku库存');
             $table->timestamps();
 

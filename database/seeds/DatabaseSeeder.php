@@ -56,7 +56,9 @@ class DatabaseSeeder extends Seeder
             'spu_id' => $spu_id,
             'label' => '默认',
             'description' => '默认品类',
-            'storage' => 10000
+            'image_thumbnail' => 'http://o93nlp231.bkt.clouddn.com/f78385376b0cd9f395467df04f049fb5.png',
+            'price' => random_int(1, 1000),
+            'storage' => random_int(1, 10000)
         ]);
     }
 
@@ -66,7 +68,9 @@ class DatabaseSeeder extends Seeder
             'spu_id' => $spu_id,
             'label' => '第二个规格',
             'description' => '第二个品类',
-            'storage' => 20000
+            'image_thumbnail' => 'http://o93nlp231.bkt.clouddn.com/f78385376b0cd9f395467df04f049fb5.png',
+            'price' => random_int(1, 1000),
+            'storage' => random_int(1, 10000)
         ]);
     }
 }
