@@ -1,8 +1,9 @@
 <template>
   <div>
-    <van-cell-group>
-      <van-cell title="收货地址">
-      </van-cell>
+    <van-cell-group class="address-title">
+      <div>
+        收货地址
+      </div>
     </van-cell-group>
     <van-cell-group class="address">
       <van-cell @click="getAddress" v-show="!address.userName" title="选择收货地址" is-link value=" ">
@@ -157,8 +158,12 @@
 </script>
 
 <style lang="stylus">
+  .address-title
+    padding 5px 15px
+    background-color transparent
+    color #8C999F
   .address
-    margin-bottom 1rem
+    margin-bottom 2rem
 
   .finish-button
     color white
