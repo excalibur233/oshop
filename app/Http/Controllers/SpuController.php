@@ -4,6 +4,7 @@ namespace OShop\Http\Controllers;
 
 use OShop\Core\Shop\Commodity\Spu;
 use OShop\Http\Resources\Spu as SpuResource;
+use OShop\Http\Resources\SpuCollection as SpuCollectionResource;
 use Illuminate\Http\Request;
 
 class SpuController extends Controller
@@ -16,7 +17,7 @@ class SpuController extends Controller
     public function index(Request $request)
     {
         if ($request->accepts('application/json')) {
-            return SpuResource::collection(Spu::paginate(10));
+            return new SpuCollectionResource(Spu::paginate(10));
         }
 
         return response(404);
@@ -49,9 +50,13 @@ class SpuController extends Controller
      * @param  \OShop\Spu  $spu
      * @return \Illuminate\Http\Response
      */
-    public function show(Spu $spu)
+    public function show(Request $request, Spu $spu)
     {
-        //
+        if ($request->accepts('application/json')) {
+            return new SpuResource($spu);
+        }
+
+        return response(404);
     }
 
     /**

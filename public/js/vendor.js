@@ -1,15 +1,53 @@
 webpackJsonp([1],{
 
+<<<<<<< HEAD
 /***/ 168:
+=======
+/***/ 10:
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+
+/***/ 117:
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(3);
+<<<<<<< HEAD
 var bind = __webpack_require__(77);
 var Axios = __webpack_require__(170);
 var defaults = __webpack_require__(51);
+=======
+var bind = __webpack_require__(32);
+var Axios = __webpack_require__(119);
+var defaults = __webpack_require__(19);
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 
 /**
  * Create an instance of Axios
@@ -42,15 +80,25 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
+<<<<<<< HEAD
 axios.Cancel = __webpack_require__(81);
 axios.CancelToken = __webpack_require__(184);
 axios.isCancel = __webpack_require__(80);
+=======
+axios.Cancel = __webpack_require__(36);
+axios.CancelToken = __webpack_require__(133);
+axios.isCancel = __webpack_require__(35);
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
+<<<<<<< HEAD
 axios.spread = __webpack_require__(185);
+=======
+axios.spread = __webpack_require__(134);
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 
 module.exports = axios;
 
@@ -60,7 +108,11 @@ module.exports.default = axios;
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 169:
+=======
+/***/ 118:
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 /***/ (function(module, exports) {
 
 /*!
@@ -88,7 +140,11 @@ function isSlowBuffer (obj) {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 170:
+=======
+/***/ 119:
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -96,8 +152,13 @@ function isSlowBuffer (obj) {
 
 var defaults = __webpack_require__(51);
 var utils = __webpack_require__(3);
+<<<<<<< HEAD
 var InterceptorManager = __webpack_require__(179);
 var dispatchRequest = __webpack_require__(180);
+=======
+var InterceptorManager = __webpack_require__(128);
+var dispatchRequest = __webpack_require__(129);
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 
 /**
  * Create a new instance of Axios
@@ -175,7 +236,11 @@ module.exports = Axios;
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 171:
+=======
+/***/ 120:
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -195,7 +260,11 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 172:
+=======
+/***/ 121:
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -229,7 +298,11 @@ module.exports = function settle(resolve, reject, response) {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 173:
+=======
+/***/ 122:
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -258,7 +331,11 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 174:
+=======
+/***/ 123:
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -334,7 +411,11 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 175:
+=======
+/***/ 124:
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -395,7 +476,11 @@ module.exports = function parseHeaders(headers) {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 176:
+=======
+/***/ 125:
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -471,7 +556,11 @@ module.exports = (
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 177:
+=======
+/***/ 126:
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -515,7 +604,11 @@ module.exports = btoa;
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 178:
+=======
+/***/ 127:
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -576,7 +669,11 @@ module.exports = (
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 179:
+=======
+/***/ 128:
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -636,18 +733,30 @@ module.exports = InterceptorManager;
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 180:
+=======
+/***/ 129:
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(3);
+<<<<<<< HEAD
 var transformData = __webpack_require__(181);
 var isCancel = __webpack_require__(80);
 var defaults = __webpack_require__(51);
 var isAbsoluteURL = __webpack_require__(182);
 var combineURLs = __webpack_require__(183);
+=======
+var transformData = __webpack_require__(130);
+var isCancel = __webpack_require__(35);
+var defaults = __webpack_require__(19);
+var isAbsoluteURL = __webpack_require__(131);
+var combineURLs = __webpack_require__(132);
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -730,7 +839,11 @@ module.exports = function dispatchRequest(config) {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 181:
+=======
+/***/ 130:
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -758,7 +871,11 @@ module.exports = function transformData(data, headers, fns) {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 182:
+=======
+/***/ 131:
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -780,7 +897,11 @@ module.exports = function isAbsoluteURL(url) {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 183:
+=======
+/***/ 132:
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -802,7 +923,11 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 184:
+=======
+/***/ 133:
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -867,7 +992,11 @@ module.exports = CancelToken;
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 185:
+=======
+/***/ 134:
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -911,6 +1040,11 @@ __webpack_require__(50);
 __webpack_require__(284);
 module.exports = __webpack_require__(59);
 
+<<<<<<< HEAD
+=======
+var utils = __webpack_require__(3);
+var normalizeHeaderName = __webpack_require__(120);
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 
 /***/ }),
 
@@ -997,6 +1131,204 @@ var support = {};
 
 		var script = doc.createElement( "script" );
 
+<<<<<<< HEAD
+=======
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+
+
+/***/ }),
+
+/***/ 200:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(6);
+__webpack_require__(43);
+__webpack_require__(31);
+__webpack_require__(201);
+module.exports = __webpack_require__(21);
+
+
+/***/ }),
+
+/***/ 201:
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * jQuery JavaScript Library v3.2.1
+ * https://jquery.com/
+ *
+ * Includes Sizzle.js
+ * https://sizzlejs.com/
+ *
+ * Copyright JS Foundation and other contributors
+ * Released under the MIT license
+ * https://jquery.org/license
+ *
+ * Date: 2017-03-20T18:59Z
+ */
+( function( global, factory ) {
+
+	"use strict";
+
+	if ( typeof module === "object" && typeof module.exports === "object" ) {
+
+		// For CommonJS and CommonJS-like environments where a proper `window`
+		// is present, execute the factory and get jQuery.
+		// For environments that do not have a `window` with a `document`
+		// (such as Node.js), expose a factory as module.exports.
+		// This accentuates the need for the creation of a real `window`.
+		// e.g. var jQuery = require("jquery")(window);
+		// See ticket #14549 for more info.
+		module.exports = global.document ?
+			factory( global, true ) :
+			function( w ) {
+				if ( !w.document ) {
+					throw new Error( "jQuery requires a window with a document" );
+				}
+				return factory( w );
+			};
+	} else {
+		factory( global );
+	}
+
+// Pass this if window is not defined yet
+} )( typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
+
+// Edge <= 12 - 13+, Firefox <=18 - 45+, IE 10 - 11, Safari 5.1 - 9+, iOS 6 - 9.1
+// throw exceptions when non-strict code (e.g., ASP.NET 4.5) accesses strict mode
+// arguments.callee.caller (trac-13335). But as of jQuery 3.0 (2016), strict mode should be common
+// enough that all such attempts are guarded in a try block.
+"use strict";
+
+var arr = [];
+
+var document = window.document;
+
+var getProto = Object.getPrototypeOf;
+
+var slice = arr.slice;
+
+var concat = arr.concat;
+
+var push = arr.push;
+
+var indexOf = arr.indexOf;
+
+var class2type = {};
+
+var toString = class2type.toString;
+
+var hasOwn = class2type.hasOwnProperty;
+
+var fnToString = hasOwn.toString;
+
+var ObjectFunctionString = fnToString.call( Object );
+
+var support = {};
+
+
+
+	function DOMEval( code, doc ) {
+		doc = doc || document;
+
+		var script = doc.createElement( "script" );
+
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 		script.text = code;
 		doc.head.appendChild( script ).parentNode.removeChild( script );
 	}
@@ -14409,6 +14741,7 @@ function callHook (vm, hook) {
 
 var MAX_UPDATE_COUNT = 100;
 
+<<<<<<< HEAD
 var queue = [];
 var activatedChildren = [];
 var has = {};
@@ -14416,6 +14749,17 @@ var circular = {};
 var waiting = false;
 var flushing = false;
 var index = 0;
+=======
+
+var bind = __webpack_require__(32);
+var isBuffer = __webpack_require__(118);
+
+/*global toString:true*/
+
+// utils is a library of generic helper functions non-specific to axios
+
+var toString = Object.prototype.toString;
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 
 /**
  * Reset the scheduler's state.
@@ -14652,11 +14996,34 @@ Watcher.prototype.addDep = function addDep (dep) {
 Watcher.prototype.cleanupDeps = function cleanupDeps () {
     var this$1 = this;
 
+<<<<<<< HEAD
   var i = this.deps.length;
   while (i--) {
     var dep = this$1.deps[i];
     if (!this$1.newDepIds.has(dep.id)) {
       dep.removeSub(this$1);
+=======
+/***/ }),
+
+/***/ 31:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(117);
+
+/***/ }),
+
+/***/ 32:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function bind(fn, thisArg) {
+  return function wrap() {
+    var args = new Array(arguments.length);
+    for (var i = 0; i < args.length; i++) {
+      args[i] = arguments[i];
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
     }
   }
   var tmp = this.depIds;
@@ -14684,6 +15051,7 @@ Watcher.prototype.update = function update () {
   }
 };
 
+<<<<<<< HEAD
 /**
  * Scheduler job interface.
  * Will be called by the scheduler.
@@ -14710,6 +15078,75 @@ Watcher.prototype.run = function run () {
         }
       } else {
         this.cb.call(this.vm, value, oldValue);
+=======
+/***/ }),
+
+/***/ 33:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(3);
+var settle = __webpack_require__(121);
+var buildURL = __webpack_require__(123);
+var parseHeaders = __webpack_require__(124);
+var isURLSameOrigin = __webpack_require__(125);
+var createError = __webpack_require__(34);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(126);
+
+module.exports = function xhrAdapter(config) {
+  return new Promise(function dispatchXhrRequest(resolve, reject) {
+    var requestData = config.data;
+    var requestHeaders = config.headers;
+
+    if (utils.isFormData(requestData)) {
+      delete requestHeaders['Content-Type']; // Let the browser set it
+    }
+
+    var request = new XMLHttpRequest();
+    var loadEvent = 'onreadystatechange';
+    var xDomain = false;
+
+    // For IE 8/9 CORS support
+    // Only supports POST and GET calls and doesn't returns the response headers.
+    // DON'T do this for testing b/c XMLHttpRequest is mocked, not XDomainRequest.
+    if ("development" !== 'test' &&
+        typeof window !== 'undefined' &&
+        window.XDomainRequest && !('withCredentials' in request) &&
+        !isURLSameOrigin(config.url)) {
+      request = new window.XDomainRequest();
+      loadEvent = 'onload';
+      xDomain = true;
+      request.onprogress = function handleProgress() {};
+      request.ontimeout = function handleTimeout() {};
+    }
+
+    // HTTP basic authentication
+    if (config.auth) {
+      var username = config.auth.username || '';
+      var password = config.auth.password || '';
+      requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
+    }
+
+    request.open(config.method.toUpperCase(), buildURL(config.url, config.params, config.paramsSerializer), true);
+
+    // Set the request timeout in MS
+    request.timeout = config.timeout;
+
+    // Listen for ready state
+    request[loadEvent] = function handleLoad() {
+      if (!request || (request.readyState !== 4 && !xDomain)) {
+        return;
+      }
+
+      // The request errored out and we didn't get a response, this will be
+      // handled by onerror instead
+      // With one exception: request that using file: protocol, most browsers
+      // will return status as 0 even though it's a successful request
+      if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {
+        return;
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
       }
     }
   }
@@ -14766,6 +15203,7 @@ var sharedPropertyDefinition = {
   set: noop
 };
 
+<<<<<<< HEAD
 function proxy (target, sourceKey, key) {
   sharedPropertyDefinition.get = function proxyGetter () {
     return this[sourceKey][key]
@@ -14775,6 +15213,13 @@ function proxy (target, sourceKey, key) {
   };
   Object.defineProperty(target, key, sharedPropertyDefinition);
 }
+=======
+    // Add xsrf header
+    // This is only done if running in a standard browser environment.
+    // Specifically not if we're in a web worker, or react-native.
+    if (utils.isStandardBrowserEnv()) {
+      var cookies = __webpack_require__(127);
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 
 function initState (vm) {
   vm._watchers = [];
@@ -14877,9 +15322,74 @@ function initData (vm) {
     } else if (!isReserved(key)) {
       proxy(vm, "_data", key);
     }
+<<<<<<< HEAD
   }
   // observe data
   observe(data, true /* asRootData */);
+=======
+
+    // Send the request
+    request.send(requestData);
+  });
+};
+
+
+/***/ }),
+
+/***/ 34:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var enhanceError = __webpack_require__(122);
+
+/**
+ * Create an Error with the specified message, config, error code, request and response.
+ *
+ * @param {string} message The error message.
+ * @param {Object} config The config.
+ * @param {string} [code] The error code (for example, 'ECONNABORTED').
+ * @param {Object} [request] The request.
+ * @param {Object} [response] The response.
+ * @returns {Error} The created error.
+ */
+module.exports = function createError(message, config, code, request, response) {
+  var error = new Error(message);
+  return enhanceError(error, config, code, request, response);
+};
+
+
+/***/ }),
+
+/***/ 35:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function isCancel(value) {
+  return !!(value && value.__CANCEL__);
+};
+
+
+/***/ }),
+
+/***/ 36:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * A `Cancel` is an object that is thrown when an operation is canceled.
+ *
+ * @class
+ * @param {string=} message The message.
+ */
+function Cancel(message) {
+  this.message = message;
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 }
 
 function getData (data, vm) {
@@ -16535,6 +17045,7 @@ var isBooleanAttr = makeMap(
 
 var xlinkNS = 'http://www.w3.org/1999/xlink';
 
+<<<<<<< HEAD
 var isXlink = function (name) {
   return name.charAt(5) === ':' && name.slice(0, 5) === 'xlink'
 };
@@ -16542,6 +17053,14 @@ var isXlink = function (name) {
 var getXlinkProp = function (name) {
   return isXlink(name) ? name.slice(6, name.length) : ''
 };
+=======
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
+ * Vue.js v2.5.8
+ * (c) 2014-2017 Evan You
+ * Released under the MIT License.
+ */
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 
 var isFalsyAttrValue = function (val) {
   return val == null || val === false
@@ -17079,12 +17598,85 @@ function createPatchFunction (backend) {
     }
   }
 
+<<<<<<< HEAD
   function isPatchable (vnode) {
     while (vnode.componentInstance) {
       vnode = vnode.componentInstance._vnode;
     }
     return isDef(vnode.tag)
   }
+=======
+// the current target watcher being evaluated.
+// this is globally unique because there could be only one
+// watcher being evaluated at any time.
+Dep.target = null;
+var targetStack = [];
+
+function pushTarget (_target) {
+  if (Dep.target) { targetStack.push(Dep.target); }
+  Dep.target = _target;
+}
+
+function popTarget () {
+  Dep.target = targetStack.pop();
+}
+
+/*  */
+
+var VNode = function VNode (
+  tag,
+  data,
+  children,
+  text,
+  elm,
+  context,
+  componentOptions,
+  asyncFactory
+) {
+  this.tag = tag;
+  this.data = data;
+  this.children = children;
+  this.text = text;
+  this.elm = elm;
+  this.ns = undefined;
+  this.context = context;
+  this.functionalContext = undefined;
+  this.functionalOptions = undefined;
+  this.functionalScopeId = undefined;
+  this.key = data && data.key;
+  this.componentOptions = componentOptions;
+  this.componentInstance = undefined;
+  this.parent = undefined;
+  this.raw = false;
+  this.isStatic = false;
+  this.isRootInsert = true;
+  this.isComment = false;
+  this.isCloned = false;
+  this.isOnce = false;
+  this.asyncFactory = asyncFactory;
+  this.asyncMeta = undefined;
+  this.isAsyncPlaceholder = false;
+};
+
+var prototypeAccessors = { child: { configurable: true } };
+
+// DEPRECATED: alias for componentInstance for backwards compat.
+/* istanbul ignore next */
+prototypeAccessors.child.get = function () {
+  return this.componentInstance
+};
+
+Object.defineProperties( VNode.prototype, prototypeAccessors );
+
+var createEmptyVNode = function (text) {
+  if ( text === void 0 ) text = '';
+
+  var node = new VNode();
+  node.text = text;
+  node.isComment = true;
+  return node
+};
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 
   function invokeCreateHooks (vnode, insertedVnodeQueue) {
     for (var i$1 = 0; i$1 < cbs.create.length; ++i$1) {
@@ -17097,6 +17689,7 @@ function createPatchFunction (backend) {
     }
   }
 
+<<<<<<< HEAD
   // set scope id attribute for scoped CSS.
   // this is implemented as a special case to avoid the overhead
   // of going through the normal attribute patching process.
@@ -17112,6 +17705,32 @@ function createPatchFunction (backend) {
         }
         ancestor = ancestor.parent;
       }
+=======
+// optimized shallow clone
+// used for static nodes and slot nodes because they may be reused across
+// multiple renders, cloning them avoids errors when DOM manipulations rely
+// on their elm reference.
+function cloneVNode (vnode, deep) {
+  var componentOptions = vnode.componentOptions;
+  var cloned = new VNode(
+    vnode.tag,
+    vnode.data,
+    vnode.children,
+    vnode.text,
+    vnode.elm,
+    vnode.context,
+    componentOptions,
+    vnode.asyncFactory
+  );
+  cloned.ns = vnode.ns;
+  cloned.isStatic = vnode.isStatic;
+  cloned.key = vnode.key;
+  cloned.isComment = vnode.isComment;
+  cloned.isCloned = true;
+  if (deep) {
+    if (vnode.children) {
+      cloned.children = cloneVNodes(vnode.children, true);
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
     }
     // for slot content they should also get the scopeId from the host instance.
     if (isDef(i = activeInstance) &&
@@ -18771,9 +19390,45 @@ function removeClass (el, cls) {
 
 /*  */
 
+<<<<<<< HEAD
 function resolveTransition (def) {
   if (!def) {
     return
+=======
+/**
+ * Runtime helper for resolving raw children VNodes into a slot object.
+ */
+function resolveSlots (
+  children,
+  context
+) {
+  var slots = {};
+  if (!children) {
+    return slots
+  }
+  for (var i = 0, l = children.length; i < l; i++) {
+    var child = children[i];
+    var data = child.data;
+    // remove slot attribute if the node is resolved as a Vue slot node
+    if (data && data.attrs && data.attrs.slot) {
+      delete data.attrs.slot;
+    }
+    // named slots should only be respected if the vnode was rendered in the
+    // same context.
+    if ((child.context === context || child.functionalContext === context) &&
+      data && data.slot != null
+    ) {
+      var name = child.data.slot;
+      var slot = (slots[name] || (slots[name] = []));
+      if (child.tag === 'template') {
+        slot.push.apply(slot, child.children);
+      } else {
+        slot.push(child);
+      }
+    } else {
+      (slots.default || (slots.default = [])).push(child);
+    }
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
   }
   /* istanbul ignore else */
   if (typeof def === 'object') {
@@ -18911,6 +19566,7 @@ function getTransitionInfo (el, expectedType) {
       propCount = animationDurations.length;
     }
   } else {
+<<<<<<< HEAD
     timeout = Math.max(transitionTimeout, animationTimeout);
     type = timeout > 0
       ? transitionTimeout > animationTimeout
@@ -18931,6 +19587,21 @@ function getTransitionInfo (el, expectedType) {
     timeout: timeout,
     propCount: propCount,
     hasTransform: hasTransform
+=======
+    updateComponent = function () {
+      vm._update(vm._render(), hydrating);
+    };
+  }
+
+  vm._watcher = new Watcher(vm, updateComponent, noop);
+  hydrating = false;
+
+  // manually mounted instance, call mounted on self
+  // mounted is called for render-created child components in its inserted hook
+  if (vm.$vnode == null) {
+    vm._isMounted = true;
+    callHook(vm, 'mounted');
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
   }
 }
 
@@ -19131,8 +19802,63 @@ function leave (vnode, rm) {
   var delayLeave = data.delayLeave;
   var duration = data.duration;
 
+<<<<<<< HEAD
   var expectsCSS = css !== false && !isIE9;
   var userWantsControl = getHookArgumentsLength(leave);
+=======
+/**
+ * A watcher parses an expression, collects dependencies,
+ * and fires callback when the expression value changes.
+ * This is used for both the $watch() api and directives.
+ */
+var Watcher = function Watcher (
+  vm,
+  expOrFn,
+  cb,
+  options
+) {
+  this.vm = vm;
+  vm._watchers.push(this);
+  // options
+  if (options) {
+    this.deep = !!options.deep;
+    this.user = !!options.user;
+    this.lazy = !!options.lazy;
+    this.sync = !!options.sync;
+  } else {
+    this.deep = this.user = this.lazy = this.sync = false;
+  }
+  this.cb = cb;
+  this.id = ++uid$2; // uid for batching
+  this.active = true;
+  this.dirty = this.lazy; // for lazy watchers
+  this.deps = [];
+  this.newDeps = [];
+  this.depIds = new _Set();
+  this.newDepIds = new _Set();
+  this.expression =  true
+    ? expOrFn.toString()
+    : '';
+  // parse expression for getter
+  if (typeof expOrFn === 'function') {
+    this.getter = expOrFn;
+  } else {
+    this.getter = parsePath(expOrFn);
+    if (!this.getter) {
+      this.getter = function () {};
+      "development" !== 'production' && warn(
+        "Failed watching path: \"" + expOrFn + "\" " +
+        'Watcher only accepts simple dot-delimited paths. ' +
+        'For full control, use a function instead.',
+        vm
+      );
+    }
+  }
+  this.value = this.lazy
+    ? undefined
+    : this.get();
+};
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 
   var explicitLeaveDuration = toNumber(
     isObject(duration)
@@ -19924,6 +20650,7 @@ function parseText (
   if (!tagRE.test(text)) {
     return
   }
+<<<<<<< HEAD
   var tokens = [];
   var lastIndex = tagRE.lastIndex = 0;
   var match, index;
@@ -19940,6 +20667,20 @@ function parseText (
   }
   if (lastIndex < text.length) {
     tokens.push(JSON.stringify(text.slice(lastIndex)));
+=======
+
+  if (options._scopeId) {
+    this._c = function (a, b, c, d) {
+      var vnode = createElement(contextVm, a, b, c, d, needNormalization);
+      if (vnode) {
+        vnode.functionalScopeId = options._scopeId;
+        vnode.functionalContext = parent;
+      }
+      return vnode
+    };
+  } else {
+    this._c = function (a, b, c, d) { return createElement(contextVm, a, b, c, d, needNormalization); };
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
   }
   return tokens.join('+')
 }
@@ -19986,6 +20727,7 @@ var klass$1 = {
   genData: genData
 };
 
+<<<<<<< HEAD
 /*  */
 
 function transformNode$1 (el, options) {
@@ -20003,6 +20745,13 @@ function transformNode$1 (el, options) {
           'instead of <div style="{{ val }}">, use <div :style="val">.'
         );
       }
+=======
+  if (vnode instanceof VNode) {
+    vnode.functionalContext = contextVm;
+    vnode.functionalOptions = options;
+    if (data.slot) {
+      (vnode.data || (vnode.data = {})).slot = data.slot;
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
     }
     el.staticStyle = JSON.stringify(parseStyleText(staticStyle));
   }
@@ -20775,9 +21524,21 @@ function findPrevElement (children) {
   }
 }
 
+<<<<<<< HEAD
 function addIfCondition (el, condition) {
   if (!el.ifConditions) {
     el.ifConditions = [];
+=======
+function pruneCacheEntry (
+  cache,
+  key,
+  keys,
+  current
+) {
+  var cached$$1 = cache[key];
+  if (cached$$1 && cached$$1 !== current) {
+    cached$$1.componentInstance.$destroy();
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
   }
   el.ifConditions.push(condition);
 }
@@ -20942,6 +21703,7 @@ function checkInFor (el) {
   return false
 }
 
+<<<<<<< HEAD
 function parseModifiers (name) {
   var match = name.match(modifierRE);
   if (match) {
@@ -20950,6 +21712,9 @@ function parseModifiers (name) {
     return ret
   }
 }
+=======
+Vue$3.version = '2.5.8';
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 
 function makeAttrsMap (attrs) {
   var map = {};
@@ -21613,8 +22378,36 @@ function genData$2 (el, state) {
   if (el.events) {
     data += (genHandlers(el.events, false, state.warn)) + ",";
   }
+<<<<<<< HEAD
   if (el.nativeEvents) {
     data += (genHandlers(el.nativeEvents, true, state.warn)) + ",";
+=======
+
+  // set scope id attribute for scoped CSS.
+  // this is implemented as a special case to avoid the overhead
+  // of going through the normal attribute patching process.
+  function setScope (vnode) {
+    var i;
+    if (isDef(i = vnode.functionalScopeId)) {
+      nodeOps.setAttribute(vnode.elm, i, '');
+    } else {
+      var ancestor = vnode;
+      while (ancestor) {
+        if (isDef(i = ancestor.context) && isDef(i = i.$options._scopeId)) {
+          nodeOps.setAttribute(vnode.elm, i, '');
+        }
+        ancestor = ancestor.parent;
+      }
+    }
+    // for slot content they should also get the scopeId from the host instance.
+    if (isDef(i = activeInstance) &&
+      i !== vnode.context &&
+      i !== vnode.functionalContext &&
+      isDef(i = i.$options._scopeId)
+    ) {
+      nodeOps.setAttribute(vnode.elm, i, '');
+    }
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
   }
   // slot target
   // only for non-scoped slots
@@ -22159,11 +22952,16 @@ Vue$3.prototype.$mount = function (
   el = el && query(el);
 
   /* istanbul ignore if */
+<<<<<<< HEAD
   if (el === document.body || el === document.documentElement) {
     "development" !== 'production' && warn(
       "Do not mount Vue to <html> or <body> - mount to normal elements instead."
     );
     return this
+=======
+  if ((isIE9 || isEdge) && attrs.value !== oldAttrs.value) {
+    setAttr(elm, 'value', attrs.value);
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
   }
 
   var options = this.$options;
@@ -22210,11 +23008,41 @@ Vue$3.prototype.$mount = function (
       options.render = render;
       options.staticRenderFns = staticRenderFns;
 
+<<<<<<< HEAD
       /* istanbul ignore if */
       if ("development" !== 'production' && config.performance && mark) {
         mark('compile end');
         measure(("vue " + (this._name) + " compile"), 'compile', 'compile end');
       }
+=======
+function setAttr (el, key, value) {
+  if (isBooleanAttr(key)) {
+    // set attribute for blank value
+    // e.g. <option disabled>Select one</option>
+    if (isFalsyAttrValue(value)) {
+      el.removeAttribute(key);
+    } else {
+      // technically allowfullscreen is a boolean attribute for <iframe>,
+      // but Flash expects a value of "true" when used on <embed> tag
+      value = key === 'allowfullscreen' && el.tagName === 'EMBED'
+        ? 'true'
+        : key;
+      el.setAttribute(key, value);
+    }
+  } else if (isEnumeratedAttr(key)) {
+    el.setAttribute(key, isFalsyAttrValue(value) || value === 'false' ? 'false' : 'true');
+  } else if (isXlink(key)) {
+    if (isFalsyAttrValue(value)) {
+      el.removeAttributeNS(xlinkNS, getXlinkProp(key));
+    } else {
+      el.setAttributeNS(xlinkNS, key, value);
+    }
+  } else {
+    if (isFalsyAttrValue(value)) {
+      el.removeAttribute(key);
+    } else {
+      el.setAttribute(key, value);
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
     }
   }
   return mount.call(this, el, hydrating)
@@ -24769,6 +25597,13 @@ function getLocation (base) {
 
 /*  */
 
+<<<<<<< HEAD
+=======
+var onRE = /^@|^v-on:/;
+var dirRE = /^v-|^@|^:/;
+var forAliasRE = /(.*?)\s+(?:in|of)\s+(.*)/;
+var forIteratorRE = /\((\{[^}]*\}|[^,]*),([^,]*)(?:,([^,]*))?\)/;
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
 
 var HashHistory = (function (History$$1) {
   function HashHistory (router, base, fallback) {
@@ -25114,6 +25949,7 @@ VueRouter.prototype.getMatchedComponents = function getMatchedComponents (to) {
   }))
 };
 
+<<<<<<< HEAD
 VueRouter.prototype.resolve = function resolve (
   to,
   current,
@@ -25136,6 +25972,30 @@ VueRouter.prototype.resolve = function resolve (
     // for backwards compat
     normalizedTo: location,
     resolved: route
+=======
+function processFor (el) {
+  var exp;
+  if ((exp = getAndRemoveAttr(el, 'v-for'))) {
+    var inMatch = exp.match(forAliasRE);
+    if (!inMatch) {
+      "development" !== 'production' && warn$2(
+        ("Invalid v-for expression: " + exp)
+      );
+      return
+    }
+    el.for = inMatch[2].trim();
+    var alias = inMatch[1].trim();
+    var iteratorMatch = alias.match(forIteratorRE);
+    if (iteratorMatch) {
+      el.alias = iteratorMatch[1].trim();
+      el.iterator1 = iteratorMatch[2].trim();
+      if (iteratorMatch[3]) {
+        el.iterator2 = iteratorMatch[3].trim();
+      }
+    } else {
+      el.alias = alias;
+    }
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100
   }
 };
 
@@ -26647,4 +27507,8 @@ exports.clearImmediate = clearImmediate;
 
 /***/ })
 
+<<<<<<< HEAD
 },[283]);
+=======
+},[200]);
+>>>>>>> 3add024afc86d24ee6e563a1ce0b8d03d7685100

@@ -34,6 +34,11 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(Order::class);
     }
 
+    public function wechatProfile()
+    {
+        return $this->hasOne(WechatProfile::class);
+    }
+
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *

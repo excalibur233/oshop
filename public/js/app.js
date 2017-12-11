@@ -22648,7 +22648,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       __WEBPACK_IMPORTED_MODULE_10_axios___default.a.get(this.url(page)).then(this.refresh);
     },
     url: function url(page) {
-      return '/spu?page=' + page + '&perPage=' + this.perPage;
+      return '/api/spu?page=' + page + '&perPage=' + this.perPage;
     },
     refresh: function refresh(_ref) {
       var data = _ref.data;

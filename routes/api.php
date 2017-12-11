@@ -17,13 +17,22 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
-Route::group([
-    'middleware' => 'api',
-    'namespace' => 'Auth',
-    'prefix' => 'auth'
-], function () {
+/*
+ * 认证逻辑
+ */
+Route::group(['prefix' => 'auth', 'namespace' => 'auth'], function () {
     Route::post('login', 'JWTAuthController@login');
     Route::post('logout', 'JWTAuthController@logout');
     Route::post('refresh', 'JWTAuthController@refresh');
     Route::post('me', 'JWTAuthController@me');
+});
+
+
+Route::group([
+    // 'middleware' => 'auth:api'
+], function(){
+    /*
+     * 商城逻辑
+     */
+    Route::resource('spu', 'SpuController');
 });

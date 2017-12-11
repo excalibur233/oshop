@@ -18,12 +18,6 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
         dd($user);
     });
 
-
-    /*
-     * 商城逻辑
-     */
-    Route::resource('spu', 'SpuController');
-
     /*
      * 前端路由，交由vue-router，注意放在最后！
     */
