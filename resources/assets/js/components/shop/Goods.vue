@@ -26,15 +26,15 @@
     </div>
 
     <van-goods-action>
-      <van-goods-action-mini-btn icon="home">
+      <van-goods-action-mini-btn icon="home" url="/">
         首页
       </van-goods-action-mini-btn>
-      <van-goods-action-mini-btn icon="cart">
-        购物车
-      </van-goods-action-mini-btn>
-      <van-goods-action-big-btn @click="add_cart">
-        加入购物车
-      </van-goods-action-big-btn>
+      <!--<van-goods-action-mini-btn icon="cart">-->
+      <!--购物车-->
+      <!--</van-goods-action-mini-btn>-->
+      <!--<van-goods-action-big-btn @click="add_cart">-->
+      <!--加入购物车-->
+      <!--</van-goods-action-big-btn>-->
       <van-goods-action-big-btn primary @click="buy">
         立即购买
       </van-goods-action-big-btn>
@@ -46,6 +46,7 @@
              :goodsId="goodsId"
              :showAddCartBtn="showAddCartBtn"
              :disableStepperInput="disableStepperInput"
+             @buy-clicked="buyGoods"
     >
       <template slot="sku-header"></template>
       <template slot="sku-actions" slot-scope="props">
@@ -91,6 +92,7 @@
     },
     data() {
       return {
+        action: '',
         showBase: false,
         showAddCartBtn: false,
         disableStepperInput: true,
@@ -113,6 +115,26 @@
       },
       buy() {
         this.showBase = true;
+        this.action = 'buy';
+      },
+      buyGoods() {
+        let vm = this;
+        let skus = vm.goods.skus;
+        for (let i = 0; i < skus.length; i++) {
+          vm.$store.commit('cart/addSku', {
+            sku: skus[i].id,
+            spu: skus[i].spu_id,
+            title: vm.goods.name,
+            price: skus[i].price,
+            desc: skus[i].label,
+            thumb: skus[i].img ? skus[i].img : vm.goods.picture
+          });
+        }
+        this.$store.commit('cart/addGoods', {
+          spu: vm.$route.params.id,
+          sku: vm.selectedSkuComb.s1,
+          number: vm.selectedNum,
+        })
       }
     },
     beforeCreate() {
@@ -126,7 +148,8 @@
           description: info.description,
           image_slide: JSON.parse(info.image_slide),
           detail: info.detail,
-          picture: info.image_thumbnail
+          picture: info.image_thumbnail,
+          skus: info.skus,
         };
         if (info.skus.length !== 0) {
           this.sku = {

@@ -84,28 +84,17 @@
     data() {
       return {
         checked_goods: [],
-        goods: [{
-          id: '1',
-          title: '进口香蕉',
-          desc: '约250g，2根',
-          price: 200,
-          num: 1,
-          thumb: 'https://img.yzcdn.cn/public_files/2017/10/24/2f9a36046449dafb8608e99990b3c205.jpeg'
-        }, {
-          id: '2',
-          title: '陕西蜜梨',
-          desc: '约600g',
-          price: 690,
-          num: 1,
-          thumb: 'https://img.yzcdn.cn/public_files/2017/10/24/f6aabd6ac5521195e01e8e89ee9fc63f.jpeg'
-        }, {
-          id: '3',
-          title: '美国伽力果',
-          desc: '约680g/3个',
-          price: 2680,
-          num: 1,
-          thumb: 'https://img.yzcdn.cn/public_files/2017/10/24/320454216bbe9e25c7651e1fa51b31fd.jpeg'
-        }],
+        goods: this.$store.state.cart.goods.map(function (e) {
+          let k = this.$store.state.cart.skus[e.sku];
+          return {
+            id: e.sku,
+            title: k.name,
+            desc: k.desc,
+            price: k.price,
+            num: e.number,
+            thumb: k.thumb
+          }
+        }),
         delete_button: false,
         address: {
 //          userName: '张三',
@@ -140,6 +129,16 @@
             vm.address = res;
           }
         });
+      },
+
+      //todo 购买逻辑
+      buy(e) {
+        let vm = this;
+        axios.post('/api/buy', {
+          params: {
+            goodsList: vm.goods
+          }
+        }).then()
       }
     },
     computed: {
@@ -162,6 +161,7 @@
     padding 5px 15px
     background-color transparent
     color #8C999F
+
   .address
     margin-bottom 2rem
 

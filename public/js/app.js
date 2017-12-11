@@ -3803,23 +3803,23 @@ if (false) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_shop_ShopIndex_vue__ = __webpack_require__(124);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_shop_ShopIndex_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_shop_ShopIndex_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_profile_Profile_vue__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_profile_Profile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_profile_Profile_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_cart_Cart_vue__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_cart_Cart_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_cart_Cart_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_partials_TabBar_vue__ = __webpack_require__(259);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_partials_TabBar_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_partials_TabBar_vue__);
-// import Categories from '../../components/shop/Categories.vue';
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_shop_Categories_vue__ = __webpack_require__(325);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_shop_Categories_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_shop_Categories_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_shop_ShopIndex_vue__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_shop_ShopIndex_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_shop_ShopIndex_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_profile_Profile_vue__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_profile_Profile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_profile_Profile_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_cart_Cart_vue__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_cart_Cart_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_cart_Cart_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_partials_TabBar_vue__ = __webpack_require__(259);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_partials_TabBar_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_partials_TabBar_vue__);
 
 
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = ([{ path: '/', components: { default: __WEBPACK_IMPORTED_MODULE_0__components_shop_ShopIndex_vue___default.a, tab: __WEBPACK_IMPORTED_MODULE_3__components_partials_TabBar_vue___default.a } },
-// { path: '/categories', components: { default: Categories, tab: TabBar } },
-{ path: '/profile', components: { default: __WEBPACK_IMPORTED_MODULE_1__components_profile_Profile_vue___default.a, tab: __WEBPACK_IMPORTED_MODULE_3__components_partials_TabBar_vue___default.a } }, { path: '/cart', components: { default: __WEBPACK_IMPORTED_MODULE_2__components_cart_Cart_vue___default.a, tab: __WEBPACK_IMPORTED_MODULE_3__components_partials_TabBar_vue___default.a } }]);
+
+/* harmony default export */ __webpack_exports__["default"] = ([{ path: '/', components: { default: __WEBPACK_IMPORTED_MODULE_1__components_shop_ShopIndex_vue___default.a, tab: __WEBPACK_IMPORTED_MODULE_4__components_partials_TabBar_vue___default.a } }, { path: '/categories', components: { default: __WEBPACK_IMPORTED_MODULE_0__components_shop_Categories_vue___default.a, tab: __WEBPACK_IMPORTED_MODULE_4__components_partials_TabBar_vue___default.a } }, { path: '/profile', components: { default: __WEBPACK_IMPORTED_MODULE_2__components_profile_Profile_vue___default.a, tab: __WEBPACK_IMPORTED_MODULE_4__components_partials_TabBar_vue___default.a } }, { path: '/cart', components: { default: __WEBPACK_IMPORTED_MODULE_3__components_cart_Cart_vue___default.a, tab: __WEBPACK_IMPORTED_MODULE_4__components_partials_TabBar_vue___default.a } }]);
 
 /***/ }),
 /* 124 */
@@ -22811,23 +22811,6 @@ var render = function() {
       },
       [
         _c(
-          "form",
-          { staticClass: "search-bar" },
-          [
-            _c("van-search", {
-              attrs: { placeholder: "请输入商品名称" },
-              model: {
-                value: _vm.searchValue,
-                callback: function($$v) {
-                  _vm.searchValue = $$v
-                },
-                expression: "searchValue"
-              }
-            })
-          ],
-          1
-        ),
-        _c(
           "van-row",
           _vm._l(_vm.spus, function(spu) {
             return _c(
@@ -23336,28 +23319,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       checked_goods: [],
-      goods: [{
-        id: '1',
-        title: '进口香蕉',
-        desc: '约250g，2根',
-        price: 200,
-        num: 1,
-        thumb: 'https://img.yzcdn.cn/public_files/2017/10/24/2f9a36046449dafb8608e99990b3c205.jpeg'
-      }, {
-        id: '2',
-        title: '陕西蜜梨',
-        desc: '约600g',
-        price: 690,
-        num: 1,
-        thumb: 'https://img.yzcdn.cn/public_files/2017/10/24/f6aabd6ac5521195e01e8e89ee9fc63f.jpeg'
-      }, {
-        id: '3',
-        title: '美国伽力果',
-        desc: '约680g/3个',
-        price: 2680,
-        num: 1,
-        thumb: 'https://img.yzcdn.cn/public_files/2017/10/24/320454216bbe9e25c7651e1fa51b31fd.jpeg'
-      }],
+      goods: this.$store.state.cart.goods.map(function (e) {
+        var k = this.$store.state.cart.skus[e.sku];
+        return {
+          id: e.sku,
+          title: k.name,
+          desc: k.desc,
+          price: k.price,
+          num: e.number,
+          thumb: k.thumb
+        };
+      }),
       delete_button: false,
       address: {
         //          userName: '张三',
@@ -23395,6 +23367,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           vm.address = res;
         }
       });
+    },
+
+
+    //todo 购买逻辑
+    buy: function buy(e) {
+      var vm = this;
+      axios.post('/api/buy', {
+        params: {
+          goodsList: vm.goods
+        }
+      }).then();
     }
   },
   computed: {
@@ -25510,14 +25493,20 @@ exports.push([module.i, "\n.van-tabbar-item--active {\n  color: #f9b900;\n}\n", 
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vant_lib_tabbar_item_style__ = __webpack_require__(263);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vant_lib_tabbar_item_style___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vant_lib_tabbar_item_style__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vant_lib_tabbar_item__ = __webpack_require__(264);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vant_lib_tabbar_item___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vant_lib_tabbar_item__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vant_lib_tabbar_style__ = __webpack_require__(265);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vant_lib_tabbar_style___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vant_lib_tabbar_style__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vant_lib_tabbar__ = __webpack_require__(268);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vant_lib_tabbar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vant_lib_tabbar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vant_lib_toast_style__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vant_lib_toast_style___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vant_lib_toast_style__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vant_lib_toast__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vant_lib_toast___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vant_lib_toast__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vant_lib_tabbar_item_style__ = __webpack_require__(263);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vant_lib_tabbar_item_style___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vant_lib_tabbar_item_style__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vant_lib_tabbar_item__ = __webpack_require__(264);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vant_lib_tabbar_item___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vant_lib_tabbar_item__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vant_lib_tabbar_style__ = __webpack_require__(265);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vant_lib_tabbar_style___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vant_lib_tabbar_style__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vant_lib_tabbar__ = __webpack_require__(268);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vant_lib_tabbar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_vant_lib_tabbar__);
+
+
 
 
 
@@ -25526,14 +25515,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    'tabbar': __WEBPACK_IMPORTED_MODULE_3_vant_lib_tabbar___default.a,
-    'tabbar-item': __WEBPACK_IMPORTED_MODULE_1_vant_lib_tabbar_item___default.a
+    'tabbar': __WEBPACK_IMPORTED_MODULE_5_vant_lib_tabbar___default.a,
+    'tabbar-item': __WEBPACK_IMPORTED_MODULE_3_vant_lib_tabbar_item___default.a
   },
   data: function data() {
     return {
       active: 0,
       cart_info: (this.$store.state.cart.goods_num || '').toString()
     };
+  },
+
+  methods: {
+    disabled: function disabled() {
+      __WEBPACK_IMPORTED_MODULE_1_vant_lib_toast___default()('暂未开放！');
+    }
   },
   mounted: function mounted() {
     this.active = this.$children[0].$children.map(function (e) {
@@ -25546,11 +25541,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var now_index = this.$children[0].$children.map(function (e) {
         return e.to;
       }).indexOf(to.path);
-      console.log(now_index);
+      //        console.log(now_index);
       this.active = now_index;
     }
   }
 }); //
+//
+//
+//
+//
 //
 //
 //
@@ -25743,6 +25742,7 @@ var render = function() {
   return _c(
     "tabbar",
     {
+      on: { change: _vm.disabled },
       model: {
         value: _vm.active,
         callback: function($$v) {
@@ -25752,26 +25752,18 @@ var render = function() {
       }
     },
     [
-      _c(
-        "tabbar-item",
-        { attrs: { to: "/", icon: "shop", replace: "replace" } },
-        [_vm._v("首页")]
-      ),
-      _c(
-        "tabbar-item",
-        { attrs: { to: "/categories", icon: "records", replace: "replace" } },
-        [_vm._v("分类")]
-      ),
-      _c(
-        "tabbar-item",
-        { attrs: { to: "/cart", icon: "cart", info: _vm.cart_info } },
-        [_vm._v("购物车")]
-      ),
-      _c(
-        "tabbar-item",
-        { attrs: { to: "/profile", icon: "contact", replace: "replace" } },
-        [_vm._v("我的")]
-      )
+      _c("tabbar-item", { attrs: { icon: "shop", replace: "replace" } }, [
+        _vm._v("首页")
+      ]),
+      _c("tabbar-item", { attrs: { icon: "records", replace: "replace" } }, [
+        _vm._v("分类")
+      ]),
+      _c("tabbar-item", { attrs: { icon: "cart", info: _vm.cart_info } }, [
+        _vm._v("购物车")
+      ]),
+      _c("tabbar-item", { attrs: { icon: "contact", replace: "replace" } }, [
+        _vm._v("我的")
+      ])
     ],
     1
   )
@@ -26031,6 +26023,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -26038,6 +26031,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   components: (_components = {}, _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_21_vant_lib_tag___default.a.name, __WEBPACK_IMPORTED_MODULE_21_vant_lib_tag___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_19_vant_lib_col___default.a.name, __WEBPACK_IMPORTED_MODULE_19_vant_lib_col___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_17_vant_lib_icon___default.a.name, __WEBPACK_IMPORTED_MODULE_17_vant_lib_icon___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_15_vant_lib_cell___default.a.name, __WEBPACK_IMPORTED_MODULE_15_vant_lib_cell___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_13_vant_lib_cell_group___default.a.name, __WEBPACK_IMPORTED_MODULE_13_vant_lib_cell_group___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_11_vant_lib_sku___default.a.name, __WEBPACK_IMPORTED_MODULE_11_vant_lib_sku___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_9_vant_lib_swipe___default.a.name, __WEBPACK_IMPORTED_MODULE_9_vant_lib_swipe___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_7_vant_lib_swipe_item___default.a.name, __WEBPACK_IMPORTED_MODULE_7_vant_lib_swipe_item___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_5_vant_lib_goods_action___default.a.name, __WEBPACK_IMPORTED_MODULE_5_vant_lib_goods_action___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_3_vant_lib_goods_action_big_btn___default.a.name, __WEBPACK_IMPORTED_MODULE_3_vant_lib_goods_action_big_btn___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_1_vant_lib_goods_action_mini_btn___default.a.name, __WEBPACK_IMPORTED_MODULE_1_vant_lib_goods_action_mini_btn___default.a), _components),
   data: function data() {
     return {
+      action: '',
       showBase: false,
       showAddCartBtn: false,
       disableStepperInput: true,
@@ -26061,6 +26055,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     buy: function buy() {
       this.showBase = true;
+      this.action = 'buy';
+    },
+    buyGoods: function buyGoods() {
+      var vm = this;
+      var skus = vm.goods.skus;
+      for (var i = 0; i < skus.length; i++) {
+        vm.$store.commit('cart/addSku', {
+          sku: skus[i].id,
+          spu: skus[i].spu_id,
+          title: vm.goods.name,
+          price: skus[i].price,
+          desc: skus[i].label,
+          thumb: skus[i].img ? skus[i].img : vm.goods.picture
+        });
+      }
+      this.$store.commit('cart/addGoods', {
+        spu: vm.$route.params.id,
+        sku: vm.selectedSkuComb.s1,
+        number: vm.selectedNum
+      });
     }
   },
   beforeCreate: function beforeCreate() {
@@ -26078,7 +26092,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         description: info.description,
         image_slide: JSON.parse(info.image_slide),
         detail: info.detail,
-        picture: info.image_thumbnail
+        picture: info.image_thumbnail,
+        skus: info.skus
       };
       if (info.skus.length !== 0) {
         _this.sku = {
@@ -27398,17 +27413,11 @@ var render = function() {
       _c(
         "van-goods-action",
         [
-          _c("van-goods-action-mini-btn", { attrs: { icon: "home" } }, [
-            _vm._v("\n      首页\n    ")
-          ]),
-          _vm._v(" "),
-          _c("van-goods-action-mini-btn", { attrs: { icon: "cart" } }, [
-            _vm._v("\n      购物车\n    ")
-          ]),
-          _vm._v(" "),
-          _c("van-goods-action-big-btn", { on: { click: _vm.add_cart } }, [
-            _vm._v("\n      加入购物车\n    ")
-          ]),
+          _c(
+            "van-goods-action-mini-btn",
+            { attrs: { icon: "home", url: "/" } },
+            [_vm._v("\n      首页\n    ")]
+          ),
           _vm._v(" "),
           _c(
             "van-goods-action-big-btn",
@@ -27430,6 +27439,7 @@ var render = function() {
             showAddCartBtn: _vm.showAddCartBtn,
             disableStepperInput: _vm.disableStepperInput
           },
+          on: { "buy-clicked": _vm.buyGoods },
           scopedSlots: _vm._u([
             {
               key: "sku-actions",
@@ -27550,12 +27560,23 @@ webpackContext.id = 309;
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
   state: {
-    goods_num: 0
+    goods_num: 0,
+    goods: [],
+    skus: {}
   },
   mutations: {
-    change: function change(state, n) {
-      state.goods_num = n;
+    addGoods: function addGoods(state, item) {
+      state.goods.push(item);
+      state.goods_num = state.goods.length;
+    },
+    removeGoods: function removeGoods(state, index) {
+      state.goods.slice(index, 1);
+      state.goods_num = state.goods.length;
+    },
+    addSku: function addSku(state, item) {
+      state.sku[item.sku] = item;
     }
   }
 });
@@ -27565,6 +27586,330 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 312 */,
+/* 313 */,
+/* 314 */,
+/* 315 */,
+/* 316 */,
+/* 317 */,
+/* 318 */,
+/* 319 */,
+/* 320 */,
+/* 321 */,
+/* 322 */,
+/* 323 */,
+/* 324 */,
+/* 325 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(326)
+}
+var normalizeComponent = __webpack_require__(12)
+/* script */
+var __vue_script__ = __webpack_require__(328)
+/* template */
+var __vue_template__ = __webpack_require__(329)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-77fe1bdb"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\shop\\Categories.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-77fe1bdb", Component.options)
+  } else {
+    hotAPI.reload("data-v-77fe1bdb", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 326 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(327);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(17)("6699c696", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-77fe1bdb\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/stylus-loader/index.js!../../../../../node_modules/vux-loader/src/style-loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./Categories.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-77fe1bdb\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/stylus-loader/index.js!../../../../../node_modules/vux-loader/src/style-loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./Categories.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 327 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n.scoll[data-v-77fe1bdb] {\n  height: 100vh;\n  overflow-y: auto;\n}\n.search-bar[data-v-77fe1bdb] {\n  height: 42px;\n}\n.search-bar .van-search[data-v-77fe1bdb] {\n  position: fixed;\n  width: 100vw;\n}\n.spu-box[data-v-77fe1bdb] {\n  margin: 5px;\n  background-color: #fff;\n  border-radius: 5px;\n}\n.spu-box .spu-image[data-v-77fe1bdb] {\n  margin: 5px;\n}\n.spu-box .spu-image img[data-v-77fe1bdb] {\n  width: 100%;\n}\n.spu-box .spu-text-box[data-v-77fe1bdb] {\n  margin: 5px;\n}\n.spu-box .spu-text-box .spu-name > p[data-v-77fe1bdb] {\n  margin-bottom: 5px;\n  font-size: 1.5rem;\n  color: #000;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  display: -webkit-box;\n  -webkit-line-clamp: 1;\n  -webkit-box-orient: vertical;\n}\n.spu-box .spu-text-box .spu-description > p[data-v-77fe1bdb] {\n  margin-bottom: 5px;\n  font-size: 1rem;\n  color: #999;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  display: -webkit-box;\n  -webkit-line-clamp: 2;\n  -webkit-box-orient: vertical;\n}\n.spu-box .spu-text-box .spu-info .spu-price-tag[data-v-77fe1bdb] {\n  font-size: 1.5rem;\n}\n.spu-box .spu-text-box .spu-info .spu-price-number[data-v-77fe1bdb] {\n  color: #f00;\n  font-size: 2rem;\n}\n.spu-box .spu-text-box .spu-info .spu-paid-count[data-v-77fe1bdb] {\n  font-size: 1rem;\n}\n.spu-box .spu-text-box .spu-info .spu-more[data-v-77fe1bdb] {\n  float: right;\n  line-height: 3.5rem;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 328 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* WEBPACK VAR INJECTION */(function(_) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vant_lib_toast_style__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vant_lib_toast_style___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vant_lib_toast_style__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vant_lib_toast__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vant_lib_toast___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vant_lib_toast__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vant_lib_waterfall_style__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vant_lib_waterfall_style___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vant_lib_waterfall_style__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vant_lib_waterfall__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vant_lib_waterfall___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vant_lib_waterfall__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vant_lib_search_style__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vant_lib_search_style___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vant_lib_search_style__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vant_lib_search__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vant_lib_search___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_vant_lib_search__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_vant_lib_row_style__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_vant_lib_row_style___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_vant_lib_row_style__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_vant_lib_row__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_vant_lib_row___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_vant_lib_row__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_vant_lib_col_style__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_vant_lib_col_style___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_vant_lib_col_style__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_vant_lib_col__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_vant_lib_col___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_vant_lib_col__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_axios__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_axios__);
+
+
+
+
+
+
+
+
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    'van-col': __WEBPACK_IMPORTED_MODULE_9_vant_lib_col___default.a,
+    'van-row': __WEBPACK_IMPORTED_MODULE_7_vant_lib_row___default.a,
+    'van-search': __WEBPACK_IMPORTED_MODULE_5_vant_lib_search___default.a
+  },
+  directives: {
+    WaterfallLower: __WEBPACK_IMPORTED_MODULE_3_vant_lib_waterfall___default()('lower'),
+    WaterfallUpper: __WEBPACK_IMPORTED_MODULE_3_vant_lib_waterfall___default()('upper')
+  },
+  data: function data() {
+    return {
+      spus: [],
+      count: 0,
+      max: 0,
+      lastPage: 0,
+      perPage: 10,
+      page: 1,
+      waterfallDisabled: false,
+      searchValue: ''
+    };
+  },
+  created: function created() {
+    this.fetch();
+  },
+
+  methods: {
+    loadMore: function loadMore() {
+      this.waterfallDisabled = true;
+      if (this.page === this.lastPage) {
+        __WEBPACK_IMPORTED_MODULE_1_vant_lib_toast___default()('没有更多了');
+        return;
+      }
+      this.fetch(this.page + 1);
+    },
+    fetch: function fetch(page) {
+      __WEBPACK_IMPORTED_MODULE_10_axios___default.a.get(this.url(page)).then(this.refresh);
+    },
+    url: function url(page) {
+      return '/spu?page=' + page + '&perPage=' + this.perPage;
+    },
+    refresh: function refresh(_ref) {
+      var data = _ref.data;
+
+      this.spus = _.concat(this.spus, data.data);
+      this.page = data.meta.current_page;
+      this.count += data.meta.to - data.meta.from + 1;
+      this.lastPage = data.meta.last_page;
+      this.max = data.meta.total;
+      this.waterfallDisabled = false;
+    }
+  }
+});
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(128)))
+
+/***/ }),
+/* 329 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "waterfall-lower",
+            rawName: "v-waterfall-lower",
+            value: _vm.loadMore,
+            expression: "loadMore"
+          }
+        ],
+        staticClass: "scoll",
+        attrs: {
+          "waterfall-disabled": "waterfallDisabled",
+          "waterfall-offset": "400"
+        }
+      },
+      [
+        _c(
+          "form",
+          { staticClass: "search-bar" },
+          [
+            _c("van-search", {
+              attrs: { placeholder: "请输入商品名称" },
+              model: {
+                value: _vm.searchValue,
+                callback: function($$v) {
+                  _vm.searchValue = $$v
+                },
+                expression: "searchValue"
+              }
+            })
+          ],
+          1
+        ),
+        _c(
+          "van-row",
+          _vm._l(_vm.spus, function(spu) {
+            return _c(
+              "van-col",
+              { key: spu.id, attrs: { span: "12" } },
+              [
+                _c("router-link", { attrs: { to: "/goods/" } }, [
+                  _c("div", { staticClass: "spu-box" }, [
+                    _c("div", { staticClass: "spu-image" }, [
+                      _c("img", { attrs: { src: spu.image_thumbnail } })
+                    ]),
+                    _c("div", { staticClass: "spu-text-box" }, [
+                      _c("div", { staticClass: "spu-name" }, [
+                        _c("p", [_vm._v(_vm._s(spu.name))])
+                      ]),
+                      _c("div", { staticClass: "spu-description" }, [
+                        _c("p", [_vm._v(_vm._s(spu.description))])
+                      ]),
+                      _c("div", { staticClass: "spu-info" }, [
+                        _c("span", { staticClass: "spu-price-tag" }, [
+                          _vm._v("￥")
+                        ]),
+                        _c("span", { staticClass: "spu-price-number" }, [
+                          _vm._v(_vm._s(spu.shown_price) + " ")
+                        ]),
+                        _c("span", { staticClass: "spu-paid-count" }, [
+                          _vm._v(_vm._s(spu.paid_count) + " 人购买")
+                        ]),
+                        _c("span", { staticClass: "spu-more" }, [_vm._v("...")])
+                      ])
+                    ])
+                  ])
+                ])
+              ],
+              1
+            )
+          })
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-77fe1bdb", module.exports)
+  }
+}
 
 /***/ })
 ],[107]);
