@@ -26,8 +26,8 @@
     </van-cell-group>
     <van-checkbox-group v-model="checked_goods">
       <van-cell-group>
-        <van-cell v-for="(item, index) in goods" :key="item.id">
-          <van-icon v-show="delete_button" class="delete-icon" name="clear" @click="deleteItem(index)"></van-icon>
+        <van-cell v-for="item in goods" :key="item.id">
+          <van-icon v-show="delete_button" class="delete-icon" name="clear" @click="deleteItem(item.id)"></van-icon>
           <van-checkbox v-show="!delete_button" class="checkbox-button" :name="item.id"></van-checkbox>
           <van-card class="goods-card"
                     :title="item.title"
@@ -84,11 +84,11 @@
     data() {
       return {
         checked_goods: [],
-        goods: this.$store.state.cart.goods.map(function (e) {
+        goods: _.values(this.$store.state.cart.goods).map((e) => {
           let k = this.$store.state.cart.skus[e.sku];
           return {
             id: e.sku,
-            title: k.name,
+            title: k.title,
             desc: k.desc,
             price: k.price,
             num: e.number,
@@ -113,11 +113,12 @@
       deleteButton() {
         this.delete_button = !this.delete_button;
       },
-      deleteItem(index) {
+      deleteItem(sku) {
         Dialog.confirm({
           title: '确认删除',
         }).then(() => {
-          this.goods.splice(index, 1);
+          this.$store.commit('cart/removeGoods', sku);
+          this.goods.splice(this.checked_goods.indexOf(sku), 1);
         }).catch(() => {
           // on cancel
         });
@@ -131,7 +132,6 @@
         });
       },
 
-      //todo 购买逻辑
       buy(e) {
         let vm = this;
         axios.post('/api/buy', {
@@ -184,6 +184,9 @@
     font-weight bolder
     color red
 
+  .van-checkbox-group
+    margin-bottom 50px
+
   .checkbox-button
     position relative
     vertical-align top
@@ -194,7 +197,7 @@
 
   .goods-card
     display inline-block
-    width calc(98vw - 65px)
+    width calc(100vw - 66px)
     margin-top 0 !important
-    border-radius 5px
+    border-radius 8px
 </style>
