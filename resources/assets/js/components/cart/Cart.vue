@@ -9,7 +9,7 @@
       <van-cell @click="getAddress" v-show="!address.userName" title="选择收货地址" is-link value=" ">
       </van-cell>
       <van-cell @click="getAddress" v-show="address.userName"
-                :title="address.userName+'，'+address.telNumber" is-link value=" " icon="location"
+                :title="address.userName+'，'+address.telNumber" is-link value=" "
                 :label="address.provinceName+' '+address.cityName+' '+address.countryName+' '+address.detailInfo">
       </van-cell>
     </van-cell-group>
