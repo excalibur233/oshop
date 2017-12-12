@@ -19,7 +19,9 @@ class Sku extends Resource
             'spu_id' => $this->spu_id,
             'label' => $this->label,
             'description' => $this->description,
-            'storage' => $this->storage
+            'image_thumbnail' => $this->image_thumbnail,
+            'price' => $this->price,
+            'storage' => $this->storage,
         ];
     }
 }
