@@ -25,6 +25,9 @@
   .text-center {
     text-align: center;
   }
+  [v-cloak] {
+    display: none;
+  }
 
   /** {*/
     /*transition: all .1s;*/

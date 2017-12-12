@@ -1,53 +1,60 @@
 <template>
-  <div class="goods">
+  <div class="goods" v-cloak>
     <van-swipe class="goods-swipe">
-      <van-swipe-item v-for="thumb in goods.thumb" :key="thumb">
+      <van-swipe-item v-for="thumb in goods.image_slide" :key="thumb">
         <img :src="thumb">
       </van-swipe-item>
     </van-swipe>
 
     <van-cell-group>
       <van-cell>
-        <div class="goods-title">{{ goods.title }}</div>
-        <div class="goods-price">{{ formatPrice(goods.price) }}</div>
+        <div class="goods-title">{{ goods.name }}</div>
+        <div class="goods-price">{{ formatPrice(goods.shown_price) }}</div>
       </van-cell>
-      <van-cell class="goods-express">
-        <van-col span="10">运费：{{ goods.express }}</van-col>
-        <van-col span="14">剩余：{{ goods.remain }}</van-col>
+      <!--<van-cell class="goods-express">-->
+      <!--<van-col span="10">运费：{{ goods.express }}</van-col>-->
+      <!--<van-col span="14">剩余：{{ goods.remain }}</van-col>-->
+      <!--</van-cell>-->
+      <van-cell>
+        <div>{{ goods.description }}</div>
       </van-cell>
     </van-cell-group>
 
     <div class="goods-detail">
       <div class="text-center">商品详情</div>
-      <div span="24">
-        <img :src="thumb" v-for="thumb in goods.thumb" :key="thumb">
-      </div>
+      <div span="24" v-html="goods.detail"></div>
     </div>
 
     <van-goods-action>
-      <van-goods-action-mini-btn icon="home">
+      <van-goods-action-mini-btn icon="home" url="/">
         首页
       </van-goods-action-mini-btn>
-      <van-goods-action-mini-btn icon="cart">
-        购物车
-      </van-goods-action-mini-btn>
-      <van-goods-action-big-btn @click="add_cart">
-        加入购物车
-      </van-goods-action-big-btn>
+      <!--<van-goods-action-mini-btn icon="cart">-->
+      <!--购物车-->
+      <!--</van-goods-action-mini-btn>-->
+      <!--<van-goods-action-big-btn @click="add_cart">-->
+      <!--加入购物车-->
+      <!--</van-goods-action-big-btn>-->
       <van-goods-action-big-btn primary @click="buy">
         立即购买
       </van-goods-action-big-btn>
     </van-goods-action>
-    <van-sku
-            v-model="showBase"
-            :sku="sku"
-            :goods="goods"
-            :showAddCartBtn="showAddCartBtn"
+    <van-sku ref="sku"
+             v-model="showBase"
+             :sku="sku"
+             :goods="goods"
+             :goodsId="goodsId"
+             :showAddCartBtn="showAddCartBtn"
+             :disableStepperInput="disableStepperInput"
+             @buy-clicked="buyGoods"
     >
+      <template slot="sku-header"></template>
       <template slot="sku-actions" slot-scope="props">
         <div class="van-sku-actions">
           <!-- 直接触发sku内部事件，通过内部事件执行handleBuyClicked回调 -->
-          <button class="van-sku__buy-btn" @click="props.skuEventBus.$emit('sku:buy')">确定</button>
+          <button v-if="!disableStepperInput" class="van-sku__buy-btn disabled">暂时无法购买</button>
+          <button v-if="disableStepperInput" class="van-sku__buy-btn" @click="props.skuEventBus.$emit('sku:buy')">确定
+          </button>
         </div>
       </template>
     </van-sku>
@@ -55,6 +62,7 @@
 </template>
 
 <script>
+  import axios from 'axios';
   import {
     Tag,
     Col,
@@ -84,64 +92,122 @@
     },
     data() {
       return {
+        action: '',
         showBase: false,
         showAddCartBtn: false,
-        goods: {
-          title: '美国伽力果（约680g/3个）',
-          price: 2680,
-          express: '免运费',
-          remain: 19,
-          thumb: [
-            'https://img.yzcdn.cn/public_files/2017/10/24/e5a5a02309a41f9f5def56684808d9ae.jpeg',
-            'https://img.yzcdn.cn/public_files/2017/10/24/1791ba14088f9c2be8c610d0a6cc0f93.jpeg'
-          ],
-          picture: "https:\/\/img.yzcdn.cn\/upload_files\/2017\/03\/16\/Fs_OMbSFPa18"
-        },
+        disableStepperInput: true,
+        goods: {},
+        goodsId: this.$route.params.id,
         goods_num: this.$store.state.cart.goods_num,
-        sku: {
-          // 所有sku规格类目与其值的从属关系，比如商品有颜色和尺码两大类规格，颜色下面又有红色和蓝色两个规格值。
-          // 可以理解为一个商品可以有多个规格类目，一个规格类目下可以有多个规格值。
-          tree: [{
-            "k": "颜色", // skuKeyName：规格类目名称
-            "v": [{
-              "id": "30349", // skuValueId：规格值id
-              "name": "红色", // skuValueName：规格值名称
-              "imgUrl": "https:\/\/img.yzcdn.cn\/upload_files\/2017\/02\/21\/FjKTOxjVgnUuPmHJRdunvYky9OHP.jpg" // 规格类目图片，只有第一个规格类目可以定义图片
-            }, {
-              "id": "1215",
-              "name": "蓝色",
-              "imgUrl": "https:\/\/img.yzcdn.cn\/upload_files\/2017\/03\/16\/Fs_OMbSFPa183sBwvG_94llUYiLa.jpeg"
-            }],
-            "k_s": "s1" // skuKeyStr：sku组合列表（下方list）中当前类目对应的key值，value值会是从属于当前类目的一个规格值id
-          }],
-          // 所有sku的组合列表，比如红色、M码为一个sku组合，红色、S码为另一个组合
-          list: [{
-            "id": 2259, // skuId，下单时后端需要
-            "price": 100, // 价格（单位分）
-            "s1": "1215", // 规格类目k_s为s1的对应规格值id
-            "s2": "1193",  // 规格类目k_s为s2的对应规格值id
-            "s3": "0", // 最多包含3个规格值，为0表示不存在该规格
-            "stock_num": 110 // 当前sku组合对应的库存
-          }],
-          price: "1.00", // 默认价格（单位元）后端单位暂时有点不统一
-          stock_num: 227, // 商品总库存
-          collection_id: 2261, // 无规格商品skuId取collection_id，否则取所选sku组合对应的id
-          none_sku: false, // 是否无规格商品
-          hide_stock: false // 是否隐藏剩余库存
-        },
+        sku: {},
       };
     },
     methods: {
-      formatPrice() {
-        return '¥' + (this.goods.price / 100).toFixed(2);
+      formatPrice(e) {
+        if (e) {
+          return '¥' + (e - 0).toFixed(2);
+        } else {
+          return '¥0.00'
+        }
       },
       add_cart() {
         this.showBase = true;
       },
       buy() {
         this.showBase = true;
+        this.action = 'buy';
+      },
+      buyGoods() {
+        let vm = this;
+        let skus = vm.goods.skus;
+        for (let i = 0; i < skus.length; i++) {
+          vm.$store.commit('cart/addSku', {
+            sku: skus[i].id,
+            spu: skus[i].spu_id,
+            title: vm.goods.name,
+            price: skus[i].price,
+            desc: skus[i].label,
+            thumb: skus[i].img ? skus[i].img : vm.goods.picture
+          });
+        }
+        this.$store.commit('cart/addGoods', {
+          spu: vm.$route.params.id,
+          sku: vm.selectedSkuComb.s1,
+          number: vm.selectedNum,
+        })
       }
-    }
+    },
+    beforeCreate() {
+      axios.get('/api/spu/' + this.$route.params.id).then(({ data }) => {
+        let info = data.data;
+        this.goods = {
+          name: info.name,
+          shown_price: info.shown_price,
+//          express: '免运费',
+//          remain: 19,
+          description: info.description,
+          image_slide: JSON.parse(info.image_slide),
+          detail: info.detail,
+          picture: info.image_thumbnail,
+          skus: info.skus,
+        };
+        if (info.skus.length !== 0) {
+          this.sku = {
+            price: info.shown_price.toString,
+            sold_count: info.sold_count,
+            collection_id: '1', // 无规格商品skuId取collection_id，否则取所选sku组合对应的id
+            none_sku: false, // 是否无规格商品
+            hide_stock: true, // 是否隐藏剩余库存
+            tree: [{
+              "k": "规格", // skuKeyName：规格类目名称
+              "v": info.skus.map((val) => {
+                return {
+                  "id": val.id,
+                  "name": val.label,
+                  "imgUrl": !val.img ? info.image_thumbnail : val.img
+                }
+              }),
+              "k_s": "s1" // skuKeyStr：sku组合列表（下方list）中当前类目对应的key值，value值会是从属于当前类目的一个规格值id
+            }],
+            list: info.skus.map((val) => {
+              return {
+                "id": val.id, // skuId，下单时后端需要
+                "price": val.price, // 价格（单位分）
+                "s1": "1", // 规格类目k_s为s1的对应规格值id
+                "stock_num": val.storage // 当前sku组合对应的库存
+              }
+            })
+          }
+        } else {
+          this.disableStepperInput = false;
+          this.sku = {
+            price: info.shown_price,
+            sold_count: info.sold_count,
+            collection_id: '1', // 无规格商品skuId取collection_id，否则取所选sku组合对应的id
+            none_sku: false, // 是否无规格商品
+            hide_stock: true, // 是否隐藏剩余库存
+            tree: [{
+              "k": "规格", // skuKeyName：规格类目名称
+              "v": [{
+                "id": 0,
+                "name": '无规格',
+                "imgUrl": info.image_thumbnail
+              }],
+              "k_s": "s1" // skuKeyStr：sku组合列表（下方list）中当前类目对应的key值，value值会是从属于当前类目的一个规格值id
+            }],
+            list: [{
+              "id": 0, // skuId，下单时后端需要
+              "price": info.shown_price, // 价格（单位分）
+              "s1": "1", // 规格类目k_s为s1的对应规格值id
+              "stock_num": 0 // 当前sku组合对应的库存
+            }]
+          }
+        }
+      })
+    },
+    mounted() {
+      this.$refs.sku.selectedSku = { s1: '1' };
+    },
   };
 </script>
 
@@ -185,6 +251,11 @@
     .van-stepper__input {
       vertical-align: bottom;
     }
+  }
+
+  .disabled {
+    background-color: #e5e5e5;
+    color: #c9c9c9;
   }
 
   .goods-detail {

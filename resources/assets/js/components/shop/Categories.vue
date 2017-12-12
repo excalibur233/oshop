@@ -6,7 +6,7 @@
       form.search-bar
         van-search(placeholder="请输入商品名称", v-model="searchValue")
       van-row
-        van-col(span="12", v-for="spu in spus", :key="spu.id"): router-link(to="/goods")
+        van-col(span="12", v-for="spu in spus", :key="spu.id"): router-link(to="/goods/")
           .spu-box
             div.spu-image
               img(:src="spu.image_thumbnail")
