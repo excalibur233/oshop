@@ -43,17 +43,21 @@
              v-model="showBase"
              :sku="sku"
              :goods="goods"
-             :goodsId="goodsId"
              :showAddCartBtn="showAddCartBtn"
              :disableStepperInput="disableStepperInput"
              @buy-clicked="buyGoods"
+             :initialSku="initialSku"
     >
       <template slot="sku-header"></template>
       <template slot="sku-actions" slot-scope="props">
         <div class="van-sku-actions">
           <!-- 直接触发sku内部事件，通过内部事件执行handleBuyClicked回调 -->
-          <button v-if="!disableStepperInput" class="van-sku__buy-btn disabled">暂时无法购买</button>
-          <button v-if="disableStepperInput" class="van-sku__buy-btn" @click="props.skuEventBus.$emit('sku:buy')">确定
+          <button v-show="disableStepperInput"
+                  class="van-button van-button--primary van-button--normal van-button--bottom-action disabled">暂时无法购买
+          </button>
+          <button v-show="!disableStepperInput"
+                  class="van-button van-button--primary van-button--normal van-button--bottom-action"
+                  @click="props.skuEventBus.$emit('sku:buy')">确定
           </button>
         </div>
       </template>
@@ -95,11 +99,12 @@
         action: '',
         showBase: false,
         showAddCartBtn: false,
-        disableStepperInput: true,
+        disableStepperInput: false,
         goods: {},
         goodsId: this.$route.params.id,
-        goods_num: this.$store.state.cart.goods_num,
+        goods_num: this.$store.state.cart.goods.length,
         sku: {},
+        initialSku: {},
       };
     },
     methods: {
@@ -121,20 +126,24 @@
         let vm = this;
         let skus = vm.goods.skus;
         for (let i = 0; i < skus.length; i++) {
-          vm.$store.commit('cart/addSku', {
-            sku: skus[i].id,
-            spu: skus[i].spu_id,
-            title: vm.goods.name,
-            price: skus[i].price,
-            desc: skus[i].label,
-            thumb: skus[i].img ? skus[i].img : vm.goods.picture
-          });
+          if (skus[i].id === vm.$refs.sku.selectedSku.s1) {
+            vm.$store.commit('cart/addSku', {
+              sku: skus[i].id,
+              spu: skus[i].spu_id,
+              title: vm.goods.name,
+              price: skus[i].price,
+              desc: skus[i].label,
+              thumb: skus[i].image_thumbnail ? skus[i].image_thumbnail : vm.goods.picture
+            });
+            break;
+          }
         }
         this.$store.commit('cart/addGoods', {
           spu: vm.$route.params.id,
-          sku: vm.selectedSkuComb.s1,
-          number: vm.selectedNum,
-        })
+          sku: vm.$refs.sku.selectedSku.s1,
+          number: vm.$refs.sku.selectedNum,
+        });
+        this.$router.push('/cart')
       }
     },
     beforeCreate() {
@@ -152,10 +161,11 @@
           skus: info.skus,
         };
         if (info.skus.length !== 0) {
+          this.initialSku.s1 = info.skus[0].id;
           this.sku = {
-            price: info.shown_price.toString,
+            price: info.shown_price,
             sold_count: info.sold_count,
-            collection_id: '1', // 无规格商品skuId取collection_id，否则取所选sku组合对应的id
+            collection_id: info.skus[0].id, // 无规格商品skuId取collection_id，否则取所选sku组合对应的id
             none_sku: false, // 是否无规格商品
             hide_stock: true, // 是否隐藏剩余库存
             tree: [{
@@ -164,7 +174,7 @@
                 return {
                   "id": val.id,
                   "name": val.label,
-                  "imgUrl": !val.img ? info.image_thumbnail : val.img
+                  "imgUrl": !val.image_thumbnail ? info.image_thumbnail : val.img
                 }
               }),
               "k_s": "s1" // skuKeyStr：sku组合列表（下方list）中当前类目对应的key值，value值会是从属于当前类目的一个规格值id
@@ -173,13 +183,13 @@
               return {
                 "id": val.id, // skuId，下单时后端需要
                 "price": val.price, // 价格（单位分）
-                "s1": "1", // 规格类目k_s为s1的对应规格值id
+                "s1": val.id, // 规格类目k_s为s1的对应规格值id
                 "stock_num": val.storage // 当前sku组合对应的库存
               }
             })
           }
         } else {
-          this.disableStepperInput = false;
+          this.disableStepperInput = true;
           this.sku = {
             price: info.shown_price,
             sold_count: info.sold_count,
@@ -204,9 +214,6 @@
           }
         }
       })
-    },
-    mounted() {
-      this.$refs.sku.selectedSku = { s1: '1' };
     },
   };
 </script>

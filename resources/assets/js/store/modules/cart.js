@@ -1,21 +1,20 @@
 export default {
   namespaced: true,
   state: {
-    goods_num: 0,
-    goods: [],
+    goods: {},
     skus: {},
   },
   mutations: {
     addGoods(state, item) {
-      state.goods.push(item);
-      state.goods_num = state.goods.length;
+      state.goods[item.sku] = item;
+      state.goods_num = _.keys(state.goods).length;
     },
-    removeGoods(state, index) {
-      state.goods.slice(index, 1);
-      state.goods_num = state.goods.length;
+    removeGoods(state, sku) {
+      delete state.goods[sku];
+      state.goods_num = _.keys(state.goods).length;
     },
     addSku(state, item) {
-      state.sku[item.sku] = item;
+      state.skus[item.sku] = item;
     },
   },
 };

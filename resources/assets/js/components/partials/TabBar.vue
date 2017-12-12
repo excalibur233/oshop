@@ -22,7 +22,7 @@
     data() {
       return {
         active: 0,
-        cart_info: (this.$store.state.cart.goods_num || '').toString(),
+        cart_info: (this.$store.state.cart.goods.length || '').toString(),
       }
     },
     methods: {
