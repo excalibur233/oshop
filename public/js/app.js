@@ -23650,14 +23650,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         };
       }),
       delete_button: false,
-      address: {
-        //          userName: '张三',
-        //          telNumber: '13000000000',
-        //          provinceName: '浙江省',
-        //          cityName: '杭州市',
-        //          countryName: '西湖区',
-        //          detailInfo: '文三路 138 号东方通信大厦 7 楼 501 室'
-      }
+      address: this.$store.state.cart.address
     };
   },
 
@@ -23685,16 +23678,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       wx.openAddress({
         success: function success(res) {
           vm.address = res;
+          vm.$store.commit('cart/addAddress', res);
         }
       });
     },
-    buy: function buy(e) {
+    buy: function buy(skus) {
       var vm = this;
       axios.post('/api/buy', {
         params: {
           goodsList: vm.goods
         }
-      }).then();
+      }).then(function () {
+        __WEBPACK_IMPORTED_MODULE_13_vant_lib_dialog___default.a.confirm({
+          title: '购买成功'
+        });
+        this.$store.commit('cart/removeGoods', skus);
+      });
     }
   },
   computed: {
@@ -28125,9 +28124,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   namespaced: true,
   state: {
     goods: {},
-    skus: {}
+    skus: {},
+    address: {}
   },
   mutations: {
+    addAddress: function addAddress(state, address) {
+      state.goods.address = address;
+    },
     addGoods: function addGoods(state, item) {
       state.goods[item.sku] = item;
       state.goods_num = _.keys(state.goods).length;

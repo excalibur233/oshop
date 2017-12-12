@@ -96,14 +96,7 @@
           }
         }),
         delete_button: false,
-        address: {
-//          userName: '张三',
-//          telNumber: '13000000000',
-//          provinceName: '浙江省',
-//          cityName: '杭州市',
-//          countryName: '西湖区',
-//          detailInfo: '文三路 138 号东方通信大厦 7 楼 501 室'
-        }
+        address: this.$store.state.cart.address
       };
     },
     methods: {
@@ -128,17 +121,23 @@
         wx.openAddress({
           success: function (res) {
             vm.address = res;
+            vm.$store.commit('cart/addAddress', res);
           }
         });
       },
-
-      buy(e) {
+      buy(skus) {
         let vm = this;
         axios.post('/api/buy', {
           params: {
             goodsList: vm.goods
           }
-        }).then()
+        }).then(function () {
+            Dialog.confirm({
+              title: '购买成功',
+            });
+            this.$store.commit('cart/removeGoods', skus)
+          }
+        )
       }
     },
     computed: {
@@ -151,7 +150,7 @@
       }
     },
     created() {
-      this.checked_goods = this.goods.map(item => item.id)
+      this.checked_goods = this.goods.map(item => item.id);
     }
   };
 </script>
