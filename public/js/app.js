@@ -21090,7 +21090,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = ([{ path: '/', components: { default: __WEBPACK_IMPORTED_MODULE_1__components_shop_ShopIndex_vue___default.a, tab: __WEBPACK_IMPORTED_MODULE_4__components_partials_TabBar_vue___default.a } }, { path: '/categories', components: { default: __WEBPACK_IMPORTED_MODULE_0__components_shop_Categories_vue___default.a, tab: __WEBPACK_IMPORTED_MODULE_4__components_partials_TabBar_vue___default.a } }, { path: '/profile', components: { default: __WEBPACK_IMPORTED_MODULE_2__components_profile_Profile_vue___default.a, tab: __WEBPACK_IMPORTED_MODULE_4__components_partials_TabBar_vue___default.a } }, { path: '/cart', components: { default: __WEBPACK_IMPORTED_MODULE_3__components_cart_Cart_vue___default.a, tab: __WEBPACK_IMPORTED_MODULE_4__components_partials_TabBar_vue___default.a } }]);
+/* harmony default export */ __webpack_exports__["default"] = ([{ path: '/', components: { default: __WEBPACK_IMPORTED_MODULE_1__components_shop_ShopIndex_vue___default.a, tab: __WEBPACK_IMPORTED_MODULE_4__components_partials_TabBar_vue___default.a } }, { path: '/categories', components: { default: __WEBPACK_IMPORTED_MODULE_0__components_shop_Categories_vue___default.a, tab: __WEBPACK_IMPORTED_MODULE_4__components_partials_TabBar_vue___default.a } }, { path: '/profile', components: { default: __WEBPACK_IMPORTED_MODULE_2__components_profile_Profile_vue___default.a, tab: __WEBPACK_IMPORTED_MODULE_4__components_partials_TabBar_vue___default.a } }, { path: '/cart', components: { default: __WEBPACK_IMPORTED_MODULE_3__components_cart_Cart_vue___default.a } }]);
 
 /***/ }),
 /* 131 */
@@ -28128,7 +28128,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   mutations: {
     addAddress: function addAddress(state, address) {
-      state.goods.address = address;
+      state.address = address;
     },
     addGoods: function addGoods(state, item) {
       state.goods[item.sku] = item;

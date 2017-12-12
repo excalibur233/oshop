@@ -7,7 +7,7 @@ export default {
   },
   mutations: {
     addAddress(state, address) {
-      state.goods.address = address;
+      state.address = address;
     },
     addGoods(state, item) {
       state.goods[item.sku] = item;

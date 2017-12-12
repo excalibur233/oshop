@@ -9,5 +9,5 @@ export default [
   { path: '/', components: { default: ShopIndex, tab: TabBar } },
   { path: '/categories', components: { default: Categories, tab: TabBar } },
   { path: '/profile', components: { default: Profile, tab: TabBar } },
-  { path: '/cart', components: { default: Cart, tab: TabBar } },
+  { path: '/cart', components: { default: Cart } },
 ]
