@@ -23668,6 +23668,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         title: '确认删除'
       }).then(function () {
         _this2.$store.commit('cart/removeGoods', sku);
+        _this2.$store.commit('cart/removeSkus', sku);
         _this2.goods.splice(_this2.checked_goods.indexOf(sku), 1);
       }).catch(function () {
         // on cancel
@@ -28140,6 +28141,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     addSku: function addSku(state, item) {
       state.skus[item.sku] = item;
+    },
+    removeSku: function removeSku(state, sku) {
+      delete state.skus[sku];
     }
   }
 });

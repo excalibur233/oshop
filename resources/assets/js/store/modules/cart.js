@@ -20,5 +20,8 @@ export default {
     addSku(state, item) {
       state.skus[item.sku] = item;
     },
+    removeSku(state, sku) {
+      delete state.skus[sku];
+    },
   },
 };

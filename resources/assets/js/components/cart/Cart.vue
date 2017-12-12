@@ -111,6 +111,7 @@
           title: '确认删除',
         }).then(() => {
           this.$store.commit('cart/removeGoods', sku);
+          this.$store.commit('cart/removeSkus', sku);
           this.goods.splice(this.checked_goods.indexOf(sku), 1);
         }).catch(() => {
           // on cancel
