@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('unionid')->nullable()->unique();
             $table->string('email')->unique()->nullable();
             $table->string('phone')->unique();
-            $table->string('introducer_unionid')->nullable()->comments('推荐人unionid，绑定推荐关联关系');
+            $table->string('introducer_unionid')->nullable()->comment('推荐人unionid，绑定推荐关联关系');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

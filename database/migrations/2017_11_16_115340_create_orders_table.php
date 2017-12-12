@@ -15,8 +15,8 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id')->comments('订单所有者');
-            $table->string('serial')->nullable()->unique()->comments('订单序列号');
+            $table->unsignedInteger('user_id')->comment('订单所有者');
+            $table->string('serial')->nullable()->unique()->comment('订单序列号');
             $table->string('remark')->nullable();
             $table->timestamps();
 

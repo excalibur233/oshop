@@ -16,15 +16,16 @@ class CreateDeliveriesTable extends Migration
         Schema::create('deliveries', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('order_id');
-            $table->string('type')->nullable()->comments('快递类型，如圆通、顺丰、EMS');
-            $table->string('number')->nullable()->comments('快递编号');
-            $table->string('name')->comments('手机号');
-            $table->string('phone')->comments('手机号');
-            $table->string('province')->comments('省');
-            $table->string('city')->comments('市');
-            $table->string('country')->comments('区');
-            $table->string('address_detail')->comments('详细地址');
-            $table->string('postal_code')->comments('邮政编码');
+            $table->string('type')->nullable()->comment('快递类型，如圆通、顺丰、EMS');
+            $table->string('number')->nullable()->comment('快递编号');
+            $table->string('name')->comment('手机号');
+            $table->string('phone')->comment('手机号');
+            $table->string('country')->comment('国家')->default('中国');
+            $table->string('province')->comment('省');
+            $table->string('city')->comment('市');
+            $table->string('district')->comment('区');
+            $table->string('address_detail')->comment('详细地址');
+            $table->string('postal_code')->nullable()->comment('邮政编码');
             $table->timestamps();
 
             $table->foreign('order_id')->references('id')->on('orders');

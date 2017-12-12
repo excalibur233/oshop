@@ -5,7 +5,7 @@ namespace OShop\Core\Shop\Order;
 use Illuminate\Database\Eloquent\Model;
 use OShop\Core\User\User;
 use DB;
-
+use OShop\Core\Thirdparty\SharePlateform\NotifyHandler;
 /**
  * 订单，在下单时生成
  *
@@ -48,12 +48,24 @@ class Order extends Model
 
     public static function createWithAttributes($input)
     {
-        DB::transaction(function () use ($input) {
-            $order = Order::create([
-                // $input->TODO
-            ]);
-        });
+        $order = null;
+        try {
+            DB::transaction(function () use ($input, &$order) {
+                $order = Order::create([
+                    // $input->TODO
+                ]);
+            });    
+        } catch (\Exception $e) {
+            return false;
+        }
+
+        static::notifyOuterPlateform($order->id);
 
         return $order->id;
+    }
+
+    protected static function notifyOuterPlateform($order_id)
+    {
+        NotifyHandler::notifyOrderComplete($order_id);
     }
 }

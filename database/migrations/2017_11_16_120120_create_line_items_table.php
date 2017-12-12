@@ -17,10 +17,10 @@ class CreateLineItemsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('order_id');
             $table->unsignedInteger('sku_id');
-            $table->timestamp('sku_version')->comments('sku快照版本，按照加入时sku的updated_at决定。如果比对不一致，则认为sku是改动过的。');
-            $table->decimal('price')->default(0.00)->comments('商品快照价格（下单时价格）');
-            $table->integer('amount')->default(1)->comments('商品购买数量');
-            $table->boolean('on_sale')->default(0)->comments('是否是特价商品（下单时）');
+            $table->timestamp('sku_version')->comment('sku快照版本，按照加入时sku的updated_at决定。如果比对不一致，则认为sku是改动过的。');
+            $table->decimal('price')->default(0.00)->comment('商品快照价格（下单时价格）');
+            $table->integer('amount')->default(1)->comment('商品购买数量');
+            $table->boolean('on_sale')->default(0)->comment('是否是特价商品（下单时）');
             $table->timestamps();
 
             $table->foreign('order_id')->references('id')->on('orders');

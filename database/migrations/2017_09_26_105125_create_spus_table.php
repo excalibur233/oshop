@@ -18,7 +18,8 @@ class CreateSpusTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->text('detail');
-            $table->decimal('shown_price');
+            $table->decimal('shown_price')->default(0.00);
+            $table->decimal('shown_commission')->default(0.00);
             $table->integer('sold_count')->default(0);
             $table->string('image_thumbnail');
             $table->json('image_slide');
