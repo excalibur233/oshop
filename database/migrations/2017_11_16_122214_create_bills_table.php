@@ -25,6 +25,7 @@ class CreateBillsTable extends Migration
             $table->decimal('fee_goods')->default(0.00)->comment('商品总价，order中所有line item价格总和');
             $table->decimal('fee_tax')->default(0.00)->comment('税费，海淘所需');
             $table->decimal('fee_coupon_cut')->default(0.00)->comment('优惠券减扣价格，应为负数');
+            $table->decimal('commission')->default(0.00)->comment('该订单返利价格');
             $table->timestamps();
             
             $table->foreign('order_id')->references('id')->on('orders');

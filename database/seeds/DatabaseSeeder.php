@@ -91,8 +91,9 @@ class DatabaseSeeder extends Seeder
             ]);
 
             $fee_goods = 0.00;
-
-            for ($i = 1; $i < random_int(1, 10); $i++) { 
+            
+            $max = random_int(1, 11);
+            for ($i = 1; $i < $max; $i++) { 
                 $sku = Sku::find($i);
                 $line_item = LineItem::create([
                     'order_id' => $order->id,

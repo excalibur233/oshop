@@ -35,4 +35,5 @@ Route::group([
      * 商城逻辑
      */
     Route::resource('spu', 'SpuController');
+    Route::resource('order', 'OrderController');
 });

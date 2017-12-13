@@ -13,7 +13,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        if (env('DUMP_SQL')) {
+            \DB::listen(function ($query) {
+                \dump($query->sql);
+            });
+        }
     }
 
     /**

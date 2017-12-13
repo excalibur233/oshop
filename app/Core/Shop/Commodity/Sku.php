@@ -20,6 +20,12 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Sku extends Model
 {
+
+    protected $casts = [
+        'price' => 'float',
+        'commission' => 'float',
+    ];
+    
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

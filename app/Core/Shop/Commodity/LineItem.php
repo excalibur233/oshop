@@ -13,6 +13,12 @@ use OShop\Core\Shop\Order\Order;
  */
 class LineItem extends Model
 {
+
+    protected $casts = [
+        'price' => 'float',
+        'commission' => 'float',
+    ];
+    
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

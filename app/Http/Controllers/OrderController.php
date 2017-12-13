@@ -24,18 +24,7 @@ class OrderController extends Controller
      */
     public function create(Request $request)
     {
-        if (!$request->accepts('application/json')) {
-            return response(404);
-        }
-
-        if ($order_id = Order::createWithAttributes($request->input())) {
-            return response()->json([
-                'success' => true,
-                'message' => [
-                    'order_id' => $order_id
-                ]
-            ]);
-        }
+        //
     }
 
     /**
@@ -46,7 +35,23 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (!$request->accepts('application/json')) {
+            return response(404);
+        }
+
+        if ($order_id = Order::createWithAttributes($request->all())) {
+            return response()->json([
+                'success' => true,
+                'message' => [
+                    'order_id' => $order_id
+                ]
+            ]);
+        }
+
+        return response()->json([
+            'success' => false,
+            'error' => null
+        ], 500);
     }
 
     /**
