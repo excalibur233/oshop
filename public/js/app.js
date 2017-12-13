@@ -25736,7 +25736,9 @@ var render = function() {
         attrs: {
           price: _vm.totalPrice,
           disabled:
-            !_vm.checked_goods.length || !_vm.address || _vm.delete_button,
+            !_vm.checked_goods.length ||
+            !_vm.address.userName ||
+            _vm.delete_button,
           buttonText: _vm.submitBarText
         },
         on: {

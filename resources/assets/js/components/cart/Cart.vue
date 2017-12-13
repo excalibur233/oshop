@@ -45,7 +45,7 @@
     </van-checkbox-group>
     <van-submit-bar
             :price="totalPrice"
-            :disabled="!checked_goods.length || !address || delete_button"
+            :disabled="!checked_goods.length || !address.userName || delete_button"
             :buttonText="submitBarText"
             @submit="buy(checked_goods)"
     />
