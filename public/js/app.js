@@ -23747,7 +23747,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var vm = this;
       __WEBPACK_IMPORTED_MODULE_24_axios___default.a.post('/api/buy', {
         goodsList: _.filter(vm.goods, function (val) {
-          return vm.checked_goods.indexOf(val.id) >= 0;
+          return skus.indexOf(val.id) >= 0;
         }).map(function (val) {
           return {
             sku_id: val.id,
@@ -23775,7 +23775,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         __WEBPACK_IMPORTED_MODULE_13_vant_lib_dialog___default.a.confirm({
           title: '购买成功'
         });
-        vm.$store.commit('cart/removeGoods', skus);
+        skus.map(function (sku) {
+          vm.$store.commit('cart/removeGoods', sku);
+        });
       });
     }
   },
@@ -25738,7 +25740,8 @@ var render = function() {
       _c("van-submit-bar", {
         attrs: {
           price: _vm.totalPrice,
-          disabled: !_vm.checked_goods.length || _vm.delete_button,
+          disabled:
+            !_vm.checked_goods.length || !_vm.address || _vm.delete_button,
           buttonText: _vm.submitBarText
         },
         on: {

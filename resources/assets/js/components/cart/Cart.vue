@@ -45,7 +45,7 @@
     </van-checkbox-group>
     <van-submit-bar
             :price="totalPrice"
-            :disabled="!checked_goods.length || delete_button"
+            :disabled="!checked_goods.length || !address || delete_button"
             :buttonText="submitBarText"
             @submit="buy(checked_goods)"
     />
@@ -132,7 +132,7 @@
         let vm = this;
         axios.post('/api/buy', {
           goodsList: _.filter(vm.goods, (val) => {
-            return vm.checked_goods.indexOf(val.id) >= 0;
+            return skus.indexOf(val.id) >= 0;
           }).map((val) => {
             return {
               sku_id: val.id,
@@ -160,7 +160,9 @@
             Dialog.confirm({
               title: '购买成功',
             });
-            vm.$store.commit('cart/removeGoods', skus)
+            skus.map((sku)=>{
+              vm.$store.commit('cart/removeGoods', sku)
+            })
           }
         )
       }
