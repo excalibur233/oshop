@@ -20957,7 +20957,8 @@ router.beforeEach(function (to, from, next) {
 var map = {
 	"./error.js": 126,
 	"./home.js": 130,
-	"./shop.js": 275
+	"./shop.js": 275,
+	"./test.js": 331
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -23686,9 +23687,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     buy: function buy(skus) {
       var vm = this;
       axios.post('/api/buy', {
-        params: {
-          goodsList: vm.goods
-        }
+        goodsList: vm.goods.map(function (val) {
+          return {
+            sku_id: val.id,
+            buy_num: val.num
+          };
+        }),
+        address: vm.address
+        /*params: {
+         goodsList: [{
+         sku_id: 1, // sku_id
+         buy_num: 10, // 数量
+         }],
+         address: {
+         userName: '', // 收货人姓名
+         postalCode: '', // 邮编
+         provinceName: '', // 国标收货地址第一级地址（省）
+         cityName: '', // 国标收货地址第二级地址（市）
+         countryName: '', // 国标收货地址第三级地址（国家）
+         detailInfo: '', // 详细收货地址信息
+         nationalCode: '', // 收货地址国家码
+         telNumber: '', // 收货人手机号码
+         },
+         }*/
       }).then(function () {
         __WEBPACK_IMPORTED_MODULE_13_vant_lib_dialog___default.a.confirm({
           title: '购买成功'
@@ -28154,6 +28175,119 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 318 */,
+/* 319 */,
+/* 320 */,
+/* 321 */,
+/* 322 */,
+/* 323 */,
+/* 324 */,
+/* 325 */,
+/* 326 */,
+/* 327 */,
+/* 328 */,
+/* 329 */,
+/* 330 */,
+/* 331 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_test_ClearLocalStorage_vue__ = __webpack_require__(332);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_test_ClearLocalStorage_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_test_ClearLocalStorage_vue__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = ([{ path: '/test/clear-local-storage', component: __WEBPACK_IMPORTED_MODULE_0__components_test_ClearLocalStorage_vue___default.a }]);
+
+/***/ }),
+/* 332 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(10)
+/* script */
+var __vue_script__ = __webpack_require__(333)
+/* template */
+var __vue_template__ = __webpack_require__(334)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\test\\ClearLocalStorage.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-9fee8dac", Component.options)
+  } else {
+    hotAPI.reload("data-v-9fee8dac", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 333 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {};
+  },
+  created: function created() {
+    localStorage.clear();
+  }
+});
+
+/***/ }),
+/* 334 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("h1", [_vm._v("清除localStorage")])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-9fee8dac", module.exports)
+  }
+}
 
 /***/ })
 ],[114]);
