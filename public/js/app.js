@@ -20957,7 +20957,8 @@ router.beforeEach(function (to, from, next) {
 var map = {
 	"./error.js": 126,
 	"./home.js": 130,
-	"./shop.js": 275
+	"./shop.js": 275,
+	"./test.js": 331
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -23602,6 +23603,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_vant_lib_address_list_style___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22_vant_lib_address_list_style__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_vant_lib_address_list__ = __webpack_require__(260);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_vant_lib_address_list___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23_vant_lib_address_list__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_axios__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24_axios__);
 
 
 
@@ -23630,6 +23633,63 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var _components;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: (_components = {}, _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_23_vant_lib_address_list___default.a.name, __WEBPACK_IMPORTED_MODULE_23_vant_lib_address_list___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_21_vant_lib_icon___default.a.name, __WEBPACK_IMPORTED_MODULE_21_vant_lib_icon___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_19_vant_lib_col___default.a.name, __WEBPACK_IMPORTED_MODULE_19_vant_lib_col___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_17_vant_lib_card___default.a.name, __WEBPACK_IMPORTED_MODULE_17_vant_lib_card___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_15_vant_lib_checkbox___default.a.name, __WEBPACK_IMPORTED_MODULE_15_vant_lib_checkbox___default.a), _defineProperty(_components, 'van-dialog', __WEBPACK_IMPORTED_MODULE_13_vant_lib_dialog___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_11_vant_lib_submit_bar___default.a.name, __WEBPACK_IMPORTED_MODULE_11_vant_lib_submit_bar___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_9_vant_lib_checkbox_group___default.a.name, __WEBPACK_IMPORTED_MODULE_9_vant_lib_checkbox_group___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_7_vant_lib_cell___default.a.name, __WEBPACK_IMPORTED_MODULE_7_vant_lib_cell___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_5_vant_lib_cell_group___default.a.name, __WEBPACK_IMPORTED_MODULE_5_vant_lib_cell_group___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_3_vant_lib_button___default.a.name, __WEBPACK_IMPORTED_MODULE_3_vant_lib_button___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_1_vant_lib_stepper___default.a.name, __WEBPACK_IMPORTED_MODULE_1_vant_lib_stepper___default.a), _components),
@@ -23685,15 +23745,34 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     buy: function buy(skus) {
       var vm = this;
-      axios.post('/api/buy', {
-        params: {
-          goodsList: vm.goods
+      __WEBPACK_IMPORTED_MODULE_24_axios___default()({
+        method: 'post',
+        url: '/api/order',
+        headers: {
+          Accept: "application/json"
+        },
+        data: {
+          goodsList: _.filter(vm.goods, function (val) {
+            return skus.indexOf(val.id) >= 0;
+          }).map(function (val) {
+            return {
+              sku_id: val.id,
+              buy_num: val.num
+            };
+          }),
+          address: vm.address
         }
-      }).then(function () {
+      }).then(function (res) {
+        var _this3 = this;
+
         __WEBPACK_IMPORTED_MODULE_13_vant_lib_dialog___default.a.confirm({
-          title: '购买成功'
+          title: res
         });
-        this.$store.commit('cart/removeGoods', skus);
+        skus.map(function (sku) {
+          vm.$store.commit('cart/removeGoods', sku);
+          vm.$store.commit('cart/removeSku', sku);
+          _this3.goods.splice(_this3.checked_goods.indexOf(sku), 1);
+        });
       });
     }
   },
@@ -23703,10 +23782,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return '结算' + (count ? '(' + count + ')' : '');
     },
     totalPrice: function totalPrice() {
-      var _this3 = this;
+      var _this4 = this;
 
       return this.goods.reduce(function (total, item) {
-        return total + (_this3.checked_goods.indexOf(item.id) !== -1 ? item.price * item.num : 0);
+        return total + (_this4.checked_goods.indexOf(item.id) !== -1 ? item.price * item.num : 0);
       }, 0);
     }
   },
@@ -23715,59 +23794,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return item.id;
     });
   }
-}); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+});
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(33)))
 
 /***/ }),
@@ -25708,8 +25735,14 @@ var render = function() {
       _c("van-submit-bar", {
         attrs: {
           price: _vm.totalPrice,
-          disabled: !_vm.checked_goods.length || _vm.delete_button,
+          disabled:
+            !_vm.checked_goods.length || !_vm.address || _vm.delete_button,
           buttonText: _vm.submitBarText
+        },
+        on: {
+          submit: function($event) {
+            _vm.buy(_vm.checked_goods)
+          }
         }
       })
     ],
@@ -28154,6 +28187,119 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 318 */,
+/* 319 */,
+/* 320 */,
+/* 321 */,
+/* 322 */,
+/* 323 */,
+/* 324 */,
+/* 325 */,
+/* 326 */,
+/* 327 */,
+/* 328 */,
+/* 329 */,
+/* 330 */,
+/* 331 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_test_ClearLocalStorage_vue__ = __webpack_require__(332);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_test_ClearLocalStorage_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_test_ClearLocalStorage_vue__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = ([{ path: '/test/clear-local-storage', component: __WEBPACK_IMPORTED_MODULE_0__components_test_ClearLocalStorage_vue___default.a }]);
+
+/***/ }),
+/* 332 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(10)
+/* script */
+var __vue_script__ = __webpack_require__(333)
+/* template */
+var __vue_template__ = __webpack_require__(334)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\test\\ClearLocalStorage.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-9fee8dac", Component.options)
+  } else {
+    hotAPI.reload("data-v-9fee8dac", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 333 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {};
+  },
+  created: function created() {
+    localStorage.clear();
+  }
+});
+
+/***/ }),
+/* 334 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("h1", [_vm._v("清除localStorage")])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-9fee8dac", module.exports)
+  }
+}
 
 /***/ })
 ],[114]);

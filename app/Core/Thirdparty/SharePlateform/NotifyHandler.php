@@ -60,8 +60,8 @@ class NotifyHandler
         $params['shareUserId'] = $order->user->introducer_unionid;
         $params['userId'] = $order->user->unionid;
         $params['totalCommission'] = $order->bill->commission;
-        $params['productInfos'] = json_encode($params['productInfos'], JSON_UNESCAPED_UNICODE);
         $params['signature'] = self::genSignature($params);
+        $params['productInfos'] = json_encode($params['productInfos'], JSON_UNESCAPED_UNICODE);
         
         return $params;
     }

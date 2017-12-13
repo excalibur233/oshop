@@ -45,13 +45,15 @@
     </van-checkbox-group>
     <van-submit-bar
             :price="totalPrice"
-            :disabled="!checked_goods.length || delete_button"
+            :disabled="!checked_goods.length || !address || delete_button"
             :buttonText="submitBarText"
+            @submit="buy(checked_goods)"
     />
   </div>
 </template>
 
 <script>
+  import axios from 'axios';
   import {
     AddressList,
     Icon,
@@ -128,17 +130,34 @@
       },
       buy(skus) {
         let vm = this;
-        axios.post('/api/buy', {
-          params: {
-            goodsList: vm.goods
+        axios({
+          method: 'post',
+          url: '/api/order',
+          headers: {
+            Accept: "application/json"
+          },
+          data: {
+            goodsList: _.filter(vm.goods, (val) => {
+              return skus.indexOf(val.id) >= 0;
+            }).map((val) => {
+              return {
+                sku_id: val.id,
+                buy_num: val.num
+              }
+            }),
+            address: vm.address,
           }
-        }).then(function () {
+        }).then(function (res) {
             Dialog.confirm({
-              title: '购买成功',
+              title: res,
             });
-            this.$store.commit('cart/removeGoods', skus)
+            skus.map((sku) => {
+              vm.$store.commit('cart/removeGoods', sku);
+              vm.$store.commit('cart/removeSku', sku);
+              this.goods.splice(this.checked_goods.indexOf(sku), 1);
+            })
           }
-        )
+        );
       }
     },
     computed: {

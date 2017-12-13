@@ -54,7 +54,7 @@ class Order extends Model
     public static function createWithAttributes($input)
     {
         $order = null;
-        // try {
+        try {
             DB::transaction(function () use ($input, &$order) {
 
                 /**
@@ -112,9 +112,9 @@ class Order extends Model
                 $delivery->postal_code = $input['address']['postalCode'];
                 $delivery->save();
             });
-        // } catch (\Exception $e) {
-        //     return false;
-        // }
+        } catch (\Exception $e) {
+            return false;
+        }
 
         static::notifyOuterPlateform($order->id);
 
