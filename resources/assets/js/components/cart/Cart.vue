@@ -53,6 +53,7 @@
 </template>
 
 <script>
+  import axios from 'axios';
   import {
     AddressList,
     Icon,
@@ -130,7 +131,9 @@
       buy(skus) {
         let vm = this;
         axios.post('/api/buy', {
-          goodsList: vm.goods.map((val) => {
+          goodsList: _.filter(vm.goods, (val) => {
+            return vm.checked_goods.indexOf(val.id) >= 0;
+          }).map((val) => {
             return {
               sku_id: val.id,
               buy_num: val.num

@@ -23603,6 +23603,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_vant_lib_address_list_style___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22_vant_lib_address_list_style__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_vant_lib_address_list__ = __webpack_require__(260);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_vant_lib_address_list___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23_vant_lib_address_list__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_axios__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24_axios__);
 
 
 
@@ -23631,6 +23633,63 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var _components;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: (_components = {}, _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_23_vant_lib_address_list___default.a.name, __WEBPACK_IMPORTED_MODULE_23_vant_lib_address_list___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_21_vant_lib_icon___default.a.name, __WEBPACK_IMPORTED_MODULE_21_vant_lib_icon___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_19_vant_lib_col___default.a.name, __WEBPACK_IMPORTED_MODULE_19_vant_lib_col___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_17_vant_lib_card___default.a.name, __WEBPACK_IMPORTED_MODULE_17_vant_lib_card___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_15_vant_lib_checkbox___default.a.name, __WEBPACK_IMPORTED_MODULE_15_vant_lib_checkbox___default.a), _defineProperty(_components, 'van-dialog', __WEBPACK_IMPORTED_MODULE_13_vant_lib_dialog___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_11_vant_lib_submit_bar___default.a.name, __WEBPACK_IMPORTED_MODULE_11_vant_lib_submit_bar___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_9_vant_lib_checkbox_group___default.a.name, __WEBPACK_IMPORTED_MODULE_9_vant_lib_checkbox_group___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_7_vant_lib_cell___default.a.name, __WEBPACK_IMPORTED_MODULE_7_vant_lib_cell___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_5_vant_lib_cell_group___default.a.name, __WEBPACK_IMPORTED_MODULE_5_vant_lib_cell_group___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_3_vant_lib_button___default.a.name, __WEBPACK_IMPORTED_MODULE_3_vant_lib_button___default.a), _defineProperty(_components, __WEBPACK_IMPORTED_MODULE_1_vant_lib_stepper___default.a.name, __WEBPACK_IMPORTED_MODULE_1_vant_lib_stepper___default.a), _components),
@@ -23686,8 +23745,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     buy: function buy(skus) {
       var vm = this;
-      axios.post('/api/buy', {
-        goodsList: vm.goods.map(function (val) {
+      __WEBPACK_IMPORTED_MODULE_24_axios___default.a.post('/api/buy', {
+        goodsList: _.filter(vm.goods, function (val) {
+          return vm.checked_goods.indexOf(val.id) >= 0;
+        }).map(function (val) {
           return {
             sku_id: val.id,
             buy_num: val.num
@@ -23736,60 +23797,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return item.id;
     });
   }
-}); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+});
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(33)))
 
 /***/ }),
