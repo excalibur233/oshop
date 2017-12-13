@@ -23745,7 +23745,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     buy: function buy(skus) {
       var vm = this;
-      __WEBPACK_IMPORTED_MODULE_24_axios___default.a.post('/api/buy', {
+      __WEBPACK_IMPORTED_MODULE_24_axios___default.a.post('/api/order', {
         goodsList: _.filter(vm.goods, function (val) {
           return skus.indexOf(val.id) >= 0;
         }).map(function (val) {
@@ -23771,11 +23771,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
          telNumber: '', // 收货人手机号码
          },
          }*/
-      }).then(function () {
+      }).then(function (res) {
         var _this3 = this;
 
         __WEBPACK_IMPORTED_MODULE_13_vant_lib_dialog___default.a.confirm({
-          title: '购买成功'
+          title: res
         });
         skus.map(function (sku) {
           vm.$store.commit('cart/removeGoods', sku);

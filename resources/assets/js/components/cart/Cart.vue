@@ -130,7 +130,7 @@
       },
       buy(skus) {
         let vm = this;
-        axios.post('/api/buy', {
+        axios.post('/api/order', {
           goodsList: _.filter(vm.goods, (val) => {
             return skus.indexOf(val.id) >= 0;
           }).map((val) => {
@@ -156,9 +156,9 @@
            telNumber: '', // 收货人手机号码
            },
            }*/
-        }).then(function () {
+        }).then(function (res) {
             Dialog.confirm({
-              title: '购买成功',
+              title: res,
             });
             skus.map((sku)=>{
               vm.$store.commit('cart/removeGoods', sku);
