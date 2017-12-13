@@ -23789,6 +23789,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(33)))
 
 /***/ }),
@@ -25731,6 +25732,11 @@ var render = function() {
           price: _vm.totalPrice,
           disabled: !_vm.checked_goods.length || _vm.delete_button,
           buttonText: _vm.submitBarText
+        },
+        on: {
+          submit: function($event) {
+            _vm.buy(_vm.checked_goods)
+          }
         }
       })
     ],

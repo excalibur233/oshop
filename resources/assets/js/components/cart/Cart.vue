@@ -47,6 +47,7 @@
             :price="totalPrice"
             :disabled="!checked_goods.length || delete_button"
             :buttonText="submitBarText"
+            @submit="buy(checked_goods)"
     />
   </div>
 </template>
