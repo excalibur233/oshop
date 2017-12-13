@@ -16,8 +16,8 @@
     git pull origin master
 @endtask
 
-@task('seed', ['on' => 'med-user', 'confirm' => true])
+@task('artisan', ['on' => 'med-user', 'confirm' => true])
     cd /home/www/oshop
 
-    php artisan db:seed
+    php artisan {{$command}}
 @endtask
