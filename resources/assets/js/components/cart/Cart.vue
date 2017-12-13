@@ -161,7 +161,9 @@
               title: '购买成功',
             });
             skus.map((sku)=>{
-              vm.$store.commit('cart/removeGoods', sku)
+              vm.$store.commit('cart/removeGoods', sku);
+              vm.$store.commit('cart/removeSkus', sku);
+              this.goods.splice(this.checked_goods.indexOf(sku), 1);
             })
           }
         )

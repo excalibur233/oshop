@@ -23772,11 +23772,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
          },
          }*/
       }).then(function () {
+        var _this3 = this;
+
         __WEBPACK_IMPORTED_MODULE_13_vant_lib_dialog___default.a.confirm({
           title: '购买成功'
         });
         skus.map(function (sku) {
           vm.$store.commit('cart/removeGoods', sku);
+          vm.$store.commit('cart/removeSkus', sku);
+          _this3.goods.splice(_this3.checked_goods.indexOf(sku), 1);
         });
       });
     }
@@ -23787,10 +23791,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return '结算' + (count ? '(' + count + ')' : '');
     },
     totalPrice: function totalPrice() {
-      var _this3 = this;
+      var _this4 = this;
 
       return this.goods.reduce(function (total, item) {
-        return total + (_this3.checked_goods.indexOf(item.id) !== -1 ? item.price * item.num : 0);
+        return total + (_this4.checked_goods.indexOf(item.id) !== -1 ? item.price * item.num : 0);
       }, 0);
     }
   },
