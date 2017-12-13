@@ -130,43 +130,34 @@
       },
       buy(skus) {
         let vm = this;
-        axios.post('/api/order', {
-          goodsList: _.filter(vm.goods, (val) => {
-            return skus.indexOf(val.id) >= 0;
-          }).map((val) => {
-            return {
-              sku_id: val.id,
-              buy_num: val.num
-            }
-          }),
-          address: vm.address,
-          /*params: {
-           goodsList: [{
-           sku_id: 1, // sku_id
-           buy_num: 10, // 数量
-           }],
-           address: {
-           userName: '', // 收货人姓名
-           postalCode: '', // 邮编
-           provinceName: '', // 国标收货地址第一级地址（省）
-           cityName: '', // 国标收货地址第二级地址（市）
-           countryName: '', // 国标收货地址第三级地址（国家）
-           detailInfo: '', // 详细收货地址信息
-           nationalCode: '', // 收货地址国家码
-           telNumber: '', // 收货人手机号码
-           },
-           }*/
+        axios({
+          method: 'post',
+          url: '/api/order',
+          headers: {
+            Accept: "application/json"
+          },
+          data: {
+            goodsList: _.filter(vm.goods, (val) => {
+              return skus.indexOf(val.id) >= 0;
+            }).map((val) => {
+              return {
+                sku_id: val.id,
+                buy_num: val.num
+              }
+            }),
+            address: vm.address,
+          }
         }).then(function (res) {
             Dialog.confirm({
               title: res,
             });
-            skus.map((sku)=>{
+            skus.map((sku) => {
               vm.$store.commit('cart/removeGoods', sku);
               vm.$store.commit('cart/removeSkus', sku);
               this.goods.splice(this.checked_goods.indexOf(sku), 1);
             })
           }
-        )
+        );
       }
     },
     computed: {
