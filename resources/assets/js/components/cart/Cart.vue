@@ -153,7 +153,7 @@
             });
             skus.map((sku) => {
               vm.$store.commit('cart/removeGoods', sku);
-              vm.$store.commit('cart/removeSkus', sku);
+              vm.$store.commit('cart/removeSku', sku);
               this.goods.splice(this.checked_goods.indexOf(sku), 1);
             })
           }

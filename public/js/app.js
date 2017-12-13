@@ -23770,7 +23770,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         });
         skus.map(function (sku) {
           vm.$store.commit('cart/removeGoods', sku);
-          vm.$store.commit('cart/removeSkus', sku);
+          vm.$store.commit('cart/removeSku', sku);
           _this3.goods.splice(_this3.checked_goods.indexOf(sku), 1);
         });
       });
