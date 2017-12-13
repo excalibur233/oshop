@@ -60,7 +60,8 @@ class Order extends Model
                 /**
                  * @var $user 当前存储的用户。这里使用了有状态的session，后期应该替换成无状态的，通过request中的token来获取当前user.
                  */
-                $user = User::where('openid', session('wechat.oauth_user')->id)->firstOrFail();
+                $user = User::where('openid', $input['openid'])->firstOrFail();
+                // $user = User::where('openid', session('wechat.oauth_user')->id)->firstOrFail();
                 // $user = User::first();
 
                 $order = new Order();
