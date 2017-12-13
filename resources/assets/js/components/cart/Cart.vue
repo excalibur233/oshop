@@ -160,7 +160,7 @@
             Dialog.confirm({
               title: '购买成功',
             });
-            this.$store.commit('cart/removeGoods', skus)
+            vm.$store.commit('cart/removeGoods', skus)
           }
         )
       }

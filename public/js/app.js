@@ -23775,7 +23775,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         __WEBPACK_IMPORTED_MODULE_13_vant_lib_dialog___default.a.confirm({
           title: '购买成功'
         });
-        this.$store.commit('cart/removeGoods', skus);
+        vm.$store.commit('cart/removeGoods', skus);
       });
     }
   },
