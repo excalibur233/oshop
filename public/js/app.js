@@ -23815,6 +23815,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     }).then(function (res) {
       if (res.status === 200) {
+        res.data.debug = false;
         wx.config(res.data);
         wx.ready(function () {
           console.log('jssdk ok');
@@ -25597,6 +25598,7 @@ var render = function() {
                 expression: "!address.userName"
               }
             ],
+            staticStyle: { "padding-top": "8px" },
             attrs: { title: "选择收货地址", "is-link": "", value: " " },
             on: { click: _vm.getAddress }
           }),
@@ -25610,6 +25612,7 @@ var render = function() {
                 expression: "address.userName"
               }
             ],
+            staticStyle: { "padding-top": "8px" },
             attrs: {
               title: _vm.address.userName + "，" + _vm.address.telNumber,
               "is-link": "",

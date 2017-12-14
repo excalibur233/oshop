@@ -6,9 +6,9 @@
       </div>
     </van-cell-group>
     <van-cell-group class="address">
-      <van-cell @click="getAddress" v-show="!address.userName" title="选择收货地址" is-link value=" ">
+      <van-cell style="padding-top: 8px;" @click="getAddress" v-show="!address.userName" title="选择收货地址" is-link value=" ">
       </van-cell>
-      <van-cell @click="getAddress" v-show="address.userName"
+      <van-cell style="padding-top: 8px;" @click="getAddress" v-show="address.userName"
                 :title="address.userName+'，'+address.telNumber" is-link value=" "
                 :label="address.provinceName+' '+address.cityName+' '+address.countryName+' '+address.detailInfo">
       </van-cell>
@@ -193,6 +193,7 @@
         }
       }).then(function (res) {
         if (res.status === 200) {
+          res.data.debug = false;
           wx.config(res.data);
           wx.ready(function () {
             console.log('jssdk ok')
