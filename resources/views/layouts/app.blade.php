@@ -17,7 +17,7 @@
 
 <!-- Scripts -->
 
-<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" charset="utf-8">
   if (document.getElementsByTagName('iframe').length > 0) {
     window.location.reload();

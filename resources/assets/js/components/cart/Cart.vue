@@ -149,14 +149,20 @@
             address: vm.address,
           }
         }).then(function (res) {
-            Dialog.confirm({
-              title: res,
-            });
-            skus.map((sku) => {
-              vm.$store.commit('cart/removeGoods', sku);
-              vm.$store.commit('cart/removeSku', sku);
-              this.goods.splice(this.checked_goods.indexOf(sku), 1);
-            })
+            if (res.status === 200) {
+              Dialog.confirm({
+                title: '购买成功',
+              });
+              skus.map((sku) => {
+                vm.$store.commit('cart/removeGoods', sku);
+                vm.$store.commit('cart/removeSku', sku);
+                this.goods.splice(this.checked_goods.indexOf(sku), 1);
+              })
+            } else {
+               Dialog.confirm({
+                title: '购买失败',
+              });
+            }
           }
         );
       }
