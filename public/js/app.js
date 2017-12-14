@@ -23752,7 +23752,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           Accept: "application/json"
         },
         data: {
-          openid: user.openid,
+          openid: user.id,
           goodsList: _.filter(vm.goods, function (val) {
             return skus.indexOf(val.id) >= 0;
           }).map(function (val) {
