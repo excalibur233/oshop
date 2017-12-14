@@ -23764,17 +23764,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           address: vm.address
         }
       }).then(function (res) {
-        var _this3 = this;
-
         if (res.status === 200) {
           __WEBPACK_IMPORTED_MODULE_13_vant_lib_dialog___default.a.confirm({
             title: '购买成功'
           });
-          skus.map(function (sku) {
-            vm.$store.commit('cart/removeGoods', sku);
-            vm.$store.commit('cart/removeSku', sku);
-            _this3.goods.splice(_this3.checked_goods.indexOf(sku), 1);
-          });
+          for (i in skus) {
+            vm.$store.commit('cart/removeGoods', skus[i]);
+            vm.$store.commit('cart/removeSku', skus[i]);
+            this.goods.splice(this.checked_goods.indexOf(skus[i]), 1);
+          }
         } else {
           __WEBPACK_IMPORTED_MODULE_13_vant_lib_dialog___default.a.confirm({
             title: '购买失败'
@@ -23789,10 +23787,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return '结算' + (count ? '(' + count + ')' : '');
     },
     totalPrice: function totalPrice() {
-      var _this4 = this;
+      var _this3 = this;
 
       return this.goods.reduce(function (total, item) {
-        return total + (_this4.checked_goods.indexOf(item.id) !== -1 ? item.price * item.num : 0);
+        return total + (_this3.checked_goods.indexOf(item.id) !== -1 ? item.price * item.num : 0);
       }, 0);
     }
   },
@@ -23800,6 +23798,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.checked_goods = this.goods.map(function (item) {
       return item.id;
     });
+
     var u = navigator.userAgent;
     var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
     var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端

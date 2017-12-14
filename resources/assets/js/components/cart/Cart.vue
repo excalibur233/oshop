@@ -153,11 +153,11 @@
               Dialog.confirm({
                 title: '购买成功',
               });
-              skus.map((sku) => {
-                vm.$store.commit('cart/removeGoods', sku);
-                vm.$store.commit('cart/removeSku', sku);
-                this.goods.splice(this.checked_goods.indexOf(sku), 1);
-              })
+              for ( i in skus) {
+                vm.$store.commit('cart/removeGoods', skus[i]);
+                vm.$store.commit('cart/removeSku', skus[i]);
+                this.goods.splice(this.checked_goods.indexOf(skus[i]), 1);
+              }
             } else {
               Dialog.confirm({
                 title: '购买失败',
@@ -178,6 +178,7 @@
     },
     created() {
       this.checked_goods = this.goods.map(item => item.id);
+
       let u = navigator.userAgent;
       let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
       let isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
