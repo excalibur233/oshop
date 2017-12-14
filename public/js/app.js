@@ -23806,7 +23806,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       headers: {
         Accept: "application/json"
       },
-      data: {
+      params: {
         url: window.location.href
       }
     }).then(function (res) {

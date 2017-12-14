@@ -184,7 +184,7 @@
         headers: {
           Accept: "application/json"
         },
-        data: {
+        params: {
           url: window.location.href
         }
       }).then(function (res) {
