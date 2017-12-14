@@ -15,7 +15,6 @@ export default {
     },
     removeGoods(state, sku) {
       delete state.goods[sku];
-      console.log('deleted');
       state.goods_num = _.keys(state.goods).length;
     },
     addSku(state, item) {
@@ -23,7 +22,6 @@ export default {
     },
     removeSku(state, sku) {
       delete state.skus[sku];
-      console.log('deleted');
     },
   },
 };

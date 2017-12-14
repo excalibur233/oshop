@@ -154,14 +154,13 @@
               Dialog.confirm({
                 title: '购买成功',
               });
-              for (let i in skus) {
-                console.log('remove');
-                console.log(skus);
-                console.log('------');
+              _.forEach((skus), function () {
                 vm.$store.commit('cart/removeGoods', skus[i]);
                 vm.$store.commit('cart/removeSku', skus[i]);
-                vm.goods.splice(vm.checked_goods.indexOf(skus[i]), 1);
-              }
+                _.remove(vm.goods, function (item) {
+                  return vm.checked_goods.indexOf(item.id) >= 0;
+                });
+              })
             } else {
               Dialog.confirm({
                 title: '购买失败',
