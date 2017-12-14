@@ -158,8 +158,8 @@
                 vm.$store.commit('cart/removeGoods', sku);
                 vm.$store.commit('cart/removeSku', sku);
               });
-              _.remove(vm.goods, function (item) {
-                return vm.checked_goods.indexOf(item.id) >= 0;
+              vm.goods = _.filter(vm.goods, function (item) {
+                return vm.checked_goods.indexOf(item.id) < 0;
               });
               vm.checked_goods = [];
             } else {
