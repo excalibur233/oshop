@@ -27,9 +27,9 @@ class NotifyHandler
                 'json' => $params,
                 'debug' => true
             ]);
-
-            echo($r->getBody());
         } catch (RequestException $e) {
+            \Log::error('外部接口请求失败');
+            // \Log::info($r);
             return false;
         }
         return true;
