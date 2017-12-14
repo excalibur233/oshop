@@ -37,5 +37,5 @@ Route::group([
     Route::resource('spu', 'SpuController');
     Route::resource('order', 'OrderController');
 
-    Route::get('wechat/config', 'WechatController@config');
+    Route::get('wechat/config', 'Wechat/WechatController@config');
 });
