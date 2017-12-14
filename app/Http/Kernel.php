@@ -59,5 +59,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'wechat.oauth' => \Overtrue\LaravelWeChat\Middleware\OAuthAuthenticate::class,//微信OAuth授权
         'wechat.persist_user' => \OShop\Http\Middleware\PersistUserIfNotExists::class,
+        'update_introducer' => \OShop\Http\Middleware\UpdateIntroducerIfProvided::class,
     ];
 }
