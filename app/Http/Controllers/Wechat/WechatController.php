@@ -20,8 +20,13 @@ class WechatController extends Controller
         return $app->server->serve();
     }
 
-    public function config()
+    public function config(Request $request)
     {
-        return app('wechat.official_account')->jssdk->buildConfig(array('openAddress'), true, true, true);
+        $jssdk = app('wechat.official_account')->jssdk;
+        if ($request->has('url')) {
+            $jssdk->setUrl($request->input('url'));
+        }
+
+        return $jssdk->buildConfig(array('openAddress'), true, true, true);
     }
 }
