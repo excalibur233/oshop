@@ -23800,6 +23800,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.checked_goods = this.goods.map(function (item) {
       return item.id;
     });
+    __WEBPACK_IMPORTED_MODULE_24_axios___default()({
+      method: 'get',
+      url: 'shop.medsci-tech.com/api/wechat/config',
+      headers: {
+        Accept: "application/json"
+      },
+      data: {
+        url: window.location.href
+      }
+    }).then(function (res) {
+      if (res.status === 200) {
+        wx.config(res.data);
+        wx.ready(function () {
+          console.log('jssdk ok');
+        });
+      }
+    });
   }
 });
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(34)))

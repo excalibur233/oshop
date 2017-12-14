@@ -159,7 +159,7 @@
                 this.goods.splice(this.checked_goods.indexOf(sku), 1);
               })
             } else {
-               Dialog.confirm({
+              Dialog.confirm({
                 title: '购买失败',
               });
             }
@@ -178,6 +178,23 @@
     },
     created() {
       this.checked_goods = this.goods.map(item => item.id);
+      axios({
+        method: 'get',
+        url: 'shop.medsci-tech.com/api/wechat/config',
+        headers: {
+          Accept: "application/json"
+        },
+        data: {
+          url: window.location.href
+        }
+      }).then(function (res) {
+        if (res.status === 200) {
+          wx.config(res.data);
+          wx.ready(function(){
+            console.log('jssdk ok')
+          })
+        }
+      })
     }
   };
 </script>
