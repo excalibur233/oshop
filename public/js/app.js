@@ -23776,6 +23776,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           _.remove(vm.goods, function (item) {
             return vm.checked_goods.indexOf(item.id) >= 0;
           });
+          vm.checked_goods = [];
         } else {
           __WEBPACK_IMPORTED_MODULE_13_vant_lib_dialog___default.a.confirm({
             title: '购买失败'

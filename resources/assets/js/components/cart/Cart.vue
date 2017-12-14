@@ -161,6 +161,7 @@
               _.remove(vm.goods, function (item) {
                 return vm.checked_goods.indexOf(item.id) >= 0;
               });
+              vm.checked_goods = [];
             } else {
               Dialog.confirm({
                 title: '购买失败',
