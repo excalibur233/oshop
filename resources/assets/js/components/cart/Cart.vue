@@ -137,6 +137,7 @@
             Accept: "application/json"
           },
           data: {
+            openid: user.openid,
             goodsList: _.filter(vm.goods, (val) => {
               return skus.indexOf(val.id) >= 0;
             }).map((val) => {
