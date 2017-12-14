@@ -22,6 +22,7 @@
   if (document.getElementsByTagName('iframe').length > 0) {
     window.location.reload();
   }
+  !window.initUrl && (window.initUrl = window.location.href);
   let user = {!! json_encode(session('wechat.oauth_user')) !!};
 </script>
 <script src="{{ mix('js/manifest.js') }}"></script>
