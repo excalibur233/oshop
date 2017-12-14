@@ -178,6 +178,10 @@
     },
     created() {
       this.checked_goods = this.goods.map(item => item.id);
+      let u = navigator.userAgent;
+      let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+      let isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+
       axios({
         method: 'get',
         url: '/api/wechat/config',
@@ -185,19 +189,10 @@
           Accept: "application/json"
         },
         params: {
-          url: window.location.href
+          url: isiOS ? window.location.origin : window.location.href
         }
       }).then(function (res) {
         if (res.status === 200) {
-
-          console.log('------');
-          console.log(res);
-          console.log('------');
-          console.log(res.data);
-          console.log('------');
-          console.log(res.data.appId);
-          console.log('------');
-
           wx.config(res.data);
           wx.ready(function () {
             console.log('jssdk ok')

@@ -23800,6 +23800,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.checked_goods = this.goods.map(function (item) {
       return item.id;
     });
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+
     __WEBPACK_IMPORTED_MODULE_24_axios___default()({
       method: 'get',
       url: '/api/wechat/config',
@@ -23807,19 +23811,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         Accept: "application/json"
       },
       params: {
-        url: window.location.href
+        url: isiOS ? window.location.origin : window.location.href
       }
     }).then(function (res) {
       if (res.status === 200) {
-
-        console.log('------');
-        console.log(res);
-        console.log('------');
-        console.log(res.data);
-        console.log('------');
-        console.log(res.data.appId);
-        console.log('------');
-
         wx.config(res.data);
         wx.ready(function () {
           console.log('jssdk ok');
