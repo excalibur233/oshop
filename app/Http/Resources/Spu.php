@@ -21,6 +21,7 @@ class Spu extends Resource
             'name' => $this->name,
             'description' => $this->description,
             'shown_price' => $this->shown_price,
+            'shown_commission' => $this->shown_commission,
             'sold_count' => $this->sold_count,            
             'image_thumbnail' => $this->image_thumbnail,
             'detail' => $this->detail,
