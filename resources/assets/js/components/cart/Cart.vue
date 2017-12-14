@@ -189,8 +189,17 @@
         }
       }).then(function (res) {
         if (res.status === 200) {
+
+          console.log('------');
+          console.log(res);
+          console.log('------');
+          console.log(res.data);
+          console.log('------');
+          console.log(res.data.appId);
+          console.log('------');
+
           wx.config(res.data);
-          wx.ready(function(){
+          wx.ready(function () {
             console.log('jssdk ok')
           })
         }
