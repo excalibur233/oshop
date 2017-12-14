@@ -23,7 +23,6 @@
     window.location.reload();
   }
   let user = {!! json_encode(session('wechat.oauth_user')) !!};
-  wx.config(<?php echo app('wechat.official_account')->jssdk->buildConfig(array('openAddress'), true, true, true) ?>);
 </script>
 <script src="{{ mix('js/manifest.js') }}"></script>
 <script src="{{ mix('js/vendor.js') }}"></script>
