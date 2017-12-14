@@ -22,6 +22,7 @@ class SpuCollection extends ResourceCollection
                     'name' => $spu->name,
                     'description' => $spu->description,
                     'shown_price' => $spu->shown_price,
+                    'shown_commission' => $spu->shown_commission,
                     'sold_count' => $spu->sold_count,
                     'image_thumbnail' => $spu->image_thumbnail,
                     'statistic_category' => new SpuStatisticCategory($spu->statisticCategory)
