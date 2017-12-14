@@ -23688,6 +23688,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -23768,10 +23769,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           __WEBPACK_IMPORTED_MODULE_13_vant_lib_dialog___default.a.confirm({
             title: '购买成功'
           });
-          for (i in skus) {
+          for (var i in skus) {
+            console.log('remove');
+            console.log(skus);
+            console.log('------');
             vm.$store.commit('cart/removeGoods', skus[i]);
             vm.$store.commit('cart/removeSku', skus[i]);
-            this.goods.splice(this.checked_goods.indexOf(skus[i]), 1);
+            vm.goods.splice(vm.checked_goods.indexOf(skus[i]), 1);
           }
         } else {
           __WEBPACK_IMPORTED_MODULE_13_vant_lib_dialog___default.a.confirm({
@@ -28302,6 +28306,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     removeGoods: function removeGoods(state, sku) {
       delete state.goods[sku];
+      console.log('deleted');
       state.goods_num = _.keys(state.goods).length;
     },
     addSku: function addSku(state, item) {
@@ -28309,6 +28314,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     removeSku: function removeSku(state, sku) {
       delete state.skus[sku];
+      console.log('deleted');
     }
   }
 });
