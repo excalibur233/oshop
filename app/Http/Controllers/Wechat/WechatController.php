@@ -19,4 +19,9 @@ class WechatController extends Controller
         
         return $app->server->serve();
     }
+
+    public function config()
+    {
+        return app('wechat.official_account')->jssdk->buildConfig(array('openAddress'), true, true, true);
+    }
 }
