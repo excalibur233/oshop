@@ -6,7 +6,8 @@
       </div>
     </van-cell-group>
     <van-cell-group class="address">
-      <van-cell style="padding-top: 8px;" @click="getAddress" v-show="!address.userName" title="选择收货地址" is-link value=" ">
+      <van-cell style="padding-top: 8px;" @click="getAddress" v-show="!address.userName" title="选择收货地址" is-link
+                value=" ">
       </van-cell>
       <van-cell style="padding-top: 8px;" @click="getAddress" v-show="address.userName"
                 :title="address.userName+'，'+address.telNumber" is-link value=" "
@@ -153,11 +154,14 @@
               Dialog.confirm({
                 title: '购买成功',
               });
-              for ( i in skus) {
-                vm.$store.commit('cart/removeGoods', skus[i]);
-                vm.$store.commit('cart/removeSku', skus[i]);
-                this.goods.splice(this.checked_goods.indexOf(skus[i]), 1);
-              }
+              _.forEach((skus), function (sku) {
+                vm.$store.commit('cart/removeGoods', sku);
+                vm.$store.commit('cart/removeSku', sku);
+              });
+              _.remove(vm.goods, function (item) {
+                return vm.checked_goods.indexOf(item.id) >= 0;
+              });
+              vm.checked_goods = [];
             } else {
               Dialog.confirm({
                 title: '购买失败',

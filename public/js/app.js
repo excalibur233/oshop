@@ -23688,6 +23688,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -23768,11 +23769,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           __WEBPACK_IMPORTED_MODULE_13_vant_lib_dialog___default.a.confirm({
             title: '购买成功'
           });
-          for (i in skus) {
-            vm.$store.commit('cart/removeGoods', skus[i]);
-            vm.$store.commit('cart/removeSku', skus[i]);
-            this.goods.splice(this.checked_goods.indexOf(skus[i]), 1);
-          }
+          _.forEach(skus, function (sku) {
+            vm.$store.commit('cart/removeGoods', sku);
+            vm.$store.commit('cart/removeSku', sku);
+          });
+          _.remove(vm.goods, function (item) {
+            return vm.checked_goods.indexOf(item.id) >= 0;
+          });
+          vm.checked_goods = [];
         } else {
           __WEBPACK_IMPORTED_MODULE_13_vant_lib_dialog___default.a.confirm({
             title: '购买失败'
