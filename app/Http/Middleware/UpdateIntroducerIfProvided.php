@@ -3,6 +3,7 @@
 namespace OShop\Http\Middleware;
 
 use Closure;
+use OShop\Core\User\User;
 
 class UpdateIntroducerIfProvided
 {
