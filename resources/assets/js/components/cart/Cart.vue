@@ -189,7 +189,7 @@
           Accept: "application/json"
         },
         params: {
-          url: isiOS ? window.location.origin : window.location.href
+          url: isiOS ? window.location.origin + '/' : window.location.href
         }
       }).then(function (res) {
         if (res.status === 200) {
