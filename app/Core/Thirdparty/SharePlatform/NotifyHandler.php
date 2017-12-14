@@ -59,6 +59,8 @@ class NotifyHandler
         $params['orderId'] = $order->serial;
         $params['shareUserId'] = $order->user->introducer_unionid;
         $params['userId'] = $order->user->unionid;
+        $params['userName'] = $order->user->wechatProfile->nickname;
+        $params['headImgUrl'] = $order->user->wechatProfile->headimgurl;
         $params['totalCommission'] = $order->bill->commission;
         $params['signature'] = self::genSignature($params);
         $params['productInfos'] = json_encode($params['productInfos'], JSON_UNESCAPED_UNICODE);
