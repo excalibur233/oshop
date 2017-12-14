@@ -23802,7 +23802,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     });
     __WEBPACK_IMPORTED_MODULE_24_axios___default()({
       method: 'get',
-      url: 'shop.medsci-tech.com/api/wechat/config',
+      url: '/shop.medsci-tech.com/api/wechat/config',
       headers: {
         Accept: "application/json"
       },

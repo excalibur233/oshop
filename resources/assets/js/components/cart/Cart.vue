@@ -180,7 +180,7 @@
       this.checked_goods = this.goods.map(item => item.id);
       axios({
         method: 'get',
-        url: 'shop.medsci-tech.com/api/wechat/config',
+        url: '/shop.medsci-tech.com/api/wechat/config',
         headers: {
           Accept: "application/json"
         },
