@@ -5,7 +5,7 @@ namespace OShop\Core\Shop\Order;
 use Illuminate\Database\Eloquent\Model;
 use OShop\Core\User\User;
 use DB;
-use OShop\Core\Thirdparty\SharePlateform\NotifyHandler;
+use OShop\Core\Thirdparty\SharePlatform\NotifyHandler;
 use Carbon\Carbon;
 use OShop\Core\Shop\Commodity\LineItem;
 use OShop\Core\Shop\Commodity\Sku;

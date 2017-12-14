@@ -12,7 +12,13 @@
 Route::any('/wechat', 'Wechat/WeChatController@serve');
 
 
-Route::group(['middleware' => ['wechat.oauth', 'wechat.persist_user']], function () {
+Route::group([
+    'middleware' => [
+        'wechat.oauth', 
+        'wechat.persist_user', 
+        'update_introducer'
+    ]
+], function () {
     Route::get('/user', function () {
         $user = session('wechat.oauth_user'); // 拿到授权用户资料
         dd($user);

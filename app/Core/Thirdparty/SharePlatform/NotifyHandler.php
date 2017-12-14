@@ -1,6 +1,6 @@
 <?php
 
-namespace OShop\Core\Thirdparty\SharePlateform;
+namespace OShop\Core\Thirdparty\SharePlatform;
 
 use OShop\Core\Shop\Order\Order;
 use GuzzleHttp\Client;
