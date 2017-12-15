@@ -87,7 +87,7 @@ class Order extends Model
                     $line_item->save();
                 
                     $fee_goods += $price * $amount;
-                    $commission_total += $commission;
+                    $commission_total += $commission * $amount;
                 }
 
                 $bill = new Bill();
